@@ -27,3 +27,13 @@ nnoremap <Leader><space> :noh<cr>
 
 " Clean up trailing whitespace
 map <Leader>c :%s/\s\+$<cr>
+
+" Map indentation to match Xcode
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+nmap <T-[> <<
+nmap <T-]> >>
+vmap <T-[> <gv
+vmap <T-]> >gv
