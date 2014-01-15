@@ -17,6 +17,9 @@ ln -s $PWD/.xvimrc ~/.xvimrc
 rm ~/.zshrc
 ln -s $PWD/.zshrc ~/.zshrc
 
+rm ~/.bash_profile
+ln -s $PWD/.bash_profile ~/.bash_profile
+
 rm ~/.oh-my-zsh/squarefrog.zsh-theme
 ln -s $PWD/squarefrog.zsh-theme ~/.oh-my-zsh/squarefrog.zsh-theme
 
