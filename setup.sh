@@ -4,11 +4,15 @@ PWD=`pwd`
 
 rm ~/.vim
 ln -s $PWD/.vim ~/.vim
+
 rm ~/.vimrc
 ln -s $PWD/.vimrc ~/.vimrc
+
 rm ~/.gvimrc
 ln -s $PWD/.gvimrc ~/.gvimrc
 
+rm ~/.xvimrc
+ln -s $PWD/.xvimrc ~/.xvimrc
 
 rm ~/.zshrc
 ln -s $PWD/.zshrc ~/.zshrc
