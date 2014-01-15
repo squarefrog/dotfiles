@@ -10,7 +10,7 @@ NeoBundle "Lokaltog/vim-easymotion"
 NeoBundle "tpope/vim-markdown"
 NeoBundle "vim-ruby/vim-ruby"
 NeoBundle "tpope/vim-surround"
-
+NeoBundle "kien/ctrlp"
 
 NeoBundle "scrooloose/nerdtree"
   let NERDTreeShowHidden=1
@@ -42,6 +42,5 @@ NeoBundle "tpope/vim-fugitive"
 NeoBundle "tpope/vim-rails"
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
-
 
 filetype plugin indent on
