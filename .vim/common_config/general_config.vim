@@ -1,6 +1,13 @@
 " Plugin stuff
 set nocompatible
 
+" Set color scheme
+syntax on " Set syntax highlighting on
+colorscheme Tomorrow-Night
+
+" Set line numbers
+set number
+
 " Setup the path for neobundle
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 

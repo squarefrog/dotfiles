@@ -23,13 +23,6 @@ set hlsearch             " highlight the search matches
 set incsearch            " show the first match as search strings are typed
 set ignorecase smartcase " searching is case insensitive when all lowercase
 
-" Set color scheme
-syntax on " Set syntax highlighting on
-set background="dark"
-let g:solarized_termcolors = 256
-let g:solarized_termtrans  = 0
-colorscheme solarized
-
 " Have the mouse enabled all the time
 set mouse=a
 
