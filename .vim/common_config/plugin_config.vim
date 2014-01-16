@@ -10,7 +10,7 @@ NeoBundle "Lokaltog/vim-easymotion"
 NeoBundle "tpope/vim-markdown"
 NeoBundle "vim-ruby/vim-ruby"
 NeoBundle "tpope/vim-surround"
-NeoBundle "kien/ctrlp"
+NeoBundle "kien/ctrlp.vim"
 
 NeoBundle "scrooloose/nerdtree"
   let NERDTreeShowHidden=1
@@ -18,7 +18,7 @@ NeoBundle "scrooloose/nerdtree"
 
 
 NeoBundle "bling/vim-airline"
-  let g:airline_theme             = 'solarized'
+  let g:airline_theme             = 'tomorrow'
   let g:airline_enable_branch     = 1
   let g:airline_enable_syntastic  = 1
   let g:airline_powerline_fonts   = 1
