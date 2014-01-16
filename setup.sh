@@ -23,8 +23,8 @@ ln -s $PWD/.bash_profile ~/.bash_profile
 rm ~/.profile
 ln -s $PWD/.profile ~/.profile
 
-rm ~/.oh-my-zsh/squarefrog.zsh-theme
-ln -s $PWD/squarefrog.zsh-theme ~/.oh-my-zsh/squarefrog.zsh-theme
+rm ~/.oh-my-zsh/themes/squarefrog.zsh-theme
+ln -s $PWD/squarefrog.zsh-theme ~/.oh-my-zsh/themes/squarefrog.zsh-theme
 
 mkdir -p $PWD/.vim/bundle
 
