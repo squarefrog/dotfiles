@@ -12,6 +12,8 @@ ZSH_THEME="squarefrog"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias json_formatter="python -mjson.tool"
 alias gs="git status"
+alias gaa="git add --all"
+alias ls="ls -G"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
