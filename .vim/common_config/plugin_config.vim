@@ -12,6 +12,10 @@ NeoBundle "vim-ruby/vim-ruby"
 NeoBundle "tpope/vim-surround"
 NeoBundle "kien/ctrlp.vim"
 
+NeoBundle "elzr/vim-json"
+  let g:vim_json_syntax_conceal = 0
+  set foldmethod=syntax
+
 NeoBundle "scrooloose/nerdtree"
   let NERDTreeShowHidden=1
   nmap gt :NERDTreeToggle<CR>
