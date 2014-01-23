@@ -15,9 +15,6 @@ set guioptions-=L         " Remove left scrollbar
 " Set font to patched powerline font
 set guifont=Inconsolata\ for\ Powerline:h16
 
-" Lets give relative line numbers a go
-set relativenumber
-
 " Searching
 set hlsearch             " highlight the search matches
 set incsearch            " show the first match as search strings are typed
