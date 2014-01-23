@@ -31,12 +31,13 @@ set scrolloff=8
 " Set the textwidth to be 80 chars
 set textwidth=80
 
+" Set soft wrapping
+set wrap linebreak nolist
+
 " Automatically read a file that has changed on disk
 set autoread
 
 " Default spacing stuff
-set nowrap
-
 " 1 tab == 2 spaces
 set tabstop=2
 set shiftwidth=2
