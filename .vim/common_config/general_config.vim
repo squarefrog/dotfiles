@@ -46,3 +46,6 @@ set softtabstop=2
 " Use spaces instead of tabs
 set expandtab
 
+" Start with folds unfolded
+set foldlevel=20
+
