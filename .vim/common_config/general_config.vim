@@ -29,10 +29,10 @@ set wildignore=system,doc,vendor,log,tmp,*.o,*.fasl,CVS,.git,doc,coverage,build,
 set scrolloff=8
 
 " Set the textwidth to be 80 chars
-set textwidth=80
+"set textwidth=80
 
 " Set soft wrapping
-set wrap linebreak nolist
+"set wrap linebreak nolist
 
 " Automatically read a file that has changed on disk
 set autoread
