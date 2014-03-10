@@ -49,3 +49,5 @@ set expandtab
 " Start with folds unfolded
 set foldlevel=20
 
+" CocoaPods
+au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
