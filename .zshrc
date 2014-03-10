@@ -14,6 +14,7 @@ alias json_formatter="python -mjson.tool"
 alias gs="git status"
 alias gaa="git add --all"
 alias ls="ls -G"
+alias objclean="/Applications/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
