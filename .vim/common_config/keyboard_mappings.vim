@@ -37,3 +37,6 @@ nmap <T-[> <<
 nmap <T-]> >>
 vmap <T-[> <gv
 vmap <T-]> >gv
+
+" Toggle search highlighting
+nnoremap <F3> :set hlsearch!<CR>
