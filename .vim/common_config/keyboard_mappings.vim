@@ -40,3 +40,6 @@ vmap <T-]> >gv
 
 " Toggle search highlighting
 nnoremap <F3> :set hlsearch!<CR>
+
+" Call format json
+map <Leader>fj :call FormatJSON()<CR>
