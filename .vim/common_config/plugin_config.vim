@@ -12,6 +12,13 @@ NeoBundle "vim-ruby/vim-ruby"
 NeoBundle "tpope/vim-surround"
 NeoBundle "kien/ctrlp.vim"
 
+" iOS specific plugins
+NeoBundle "eraserhd/vim-ios"
+NeoBundle "eraserhd/vim-kiwi"
+NeoBundle "msanders/cocoa.vim"
+NeoBundle "Rip-Rip/clang_complete"
+NeoBundle "jerrymarino/xcodebuild.vim"
+
 NeoBundle "elzr/vim-json"
   let g:vim_json_syntax_conceal = 0
   set foldmethod=syntax
