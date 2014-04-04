@@ -21,10 +21,13 @@ rm ~/.bash_profile
 ln -s $PWD/.bash_profile ~/.bash_profile
 
 rm ~/.profile
-ln -s $PWD/.profile ~/.profile
+ln -s $pwd/.profile ~/.profile
 
 rm ~/.oh-my-zsh/themes/squarefrog.zsh-theme
 ln -s $PWD/squarefrog.zsh-theme ~/.oh-my-zsh/themes/squarefrog.zsh-theme
+
+rm ~/.tmux.conf
+ln -s $pwd/.tmux.conf ~/.tmux.conf
 
 mkdir -p $PWD/.vim/bundle
 
