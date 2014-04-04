@@ -2,7 +2,6 @@ runtime! before_config/*.vim
   set t_Co=256 " Set colours for vim-airline
 
 " bring in the bundles for mac and windows
-set rtp+=~/vimfiles/neobundle.vim/
 set rtp+=~/.vim/bundle/neobundle.vim/
 call neobundle#rc()
 
