@@ -19,6 +19,10 @@ NeoBundle "msanders/cocoa.vim"
 NeoBundle "Rip-Rip/clang_complete"
 NeoBundle "jerrymarino/xcodebuild.vim"
 
+" Arduino
+NeoBundle "jplaut/vim-arduino-ino"
+NeoBundle "sudar/vim-arduino-syntax"
+
 NeoBundle "elzr/vim-json"
   let g:vim_json_syntax_conceal = 0
   set foldmethod=syntax
