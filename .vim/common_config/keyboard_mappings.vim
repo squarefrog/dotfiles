@@ -16,12 +16,6 @@ map <Leader>I gg=G``<cr>
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 " map spacebar to clear search highlight
 nnoremap <Leader><space> :noh<cr>
 
