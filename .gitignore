@@ -1,2 +1,3 @@
 .vim/custom_config
 .vim/.netrwhist
+tmux-*.log
