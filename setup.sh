@@ -3,7 +3,8 @@
 PWD=`pwd`
 
 # Link ALL the files
-ln -sf $PWD/.vim ~/.vim
+rm -rf ~/.vim
+ln -s $PWD/.vim ~/.vim
 ln -sf $PWD/.vimrc ~/.vimrc
 ln -sf $PWD/.gvimrc ~/.gvimrc
 ln -sf $PWD/.xvimrc ~/.xvimrc
