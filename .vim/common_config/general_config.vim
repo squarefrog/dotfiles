@@ -1,3 +1,6 @@
+" set temporary directory (don't litter local dir with swp/tmp files)
+set directory=/tmp/
+
 " Plugin stuff
 set nocompatible
 

@@ -10,6 +10,7 @@ let mapleader=","
 " Disable the pesky :Q command
 nnoremap Q <nop>
 
+" Reindent all
 map <Leader>I gg=G``<cr>
 
 " Quick edit the vimrc file
@@ -22,15 +23,9 @@ nnoremap <Leader><space> :noh<cr>
 " Clean up trailing whitespace
 map <Leader>c :%s/\s\+$<cr>
 
-" Map indentation to match Xcode
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
-nmap <T-[> <<
-nmap <T-]> >>
-vmap <T-[> <gv
-vmap <T-]> >gv
+" Make indenting easier
+nnoremap > >>
+nnoremap < <<
 
 " Toggle search highlighting
 nnoremap <F3> :set hlsearch!<CR>
