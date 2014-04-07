@@ -17,3 +17,10 @@ First, install [Homebrew](http://brew.sh/), then the required brews:
     brew install macvim
     brew install tmux
     brew install reattach-to-user-namespace
+    brew install tree
+
+## Other nice packages
+
+    brew install mogenerator
+    brew install python # Also installs pip
+
