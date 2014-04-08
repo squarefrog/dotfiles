@@ -13,13 +13,6 @@ nnoremap Q <nop>
 " Reindent all
 map <Leader>I gg=G``<cr>
 
-" Quick edit the vimrc file
-nmap <silent> <Leader>ev :e $MYVIMRC<CR>
-nmap <silent> <Leader>sv :so $MYVIMRC<CR>
-
-" map spacebar to clear search highlight
-nnoremap <Leader><space> :noh<cr>
-
 " Clean up trailing whitespace
 map <Leader>c :%s/\s\+$<cr>
 
@@ -29,6 +22,11 @@ nnoremap < <<
 
 " Toggle search highlighting
 nnoremap <F3> :set hlsearch!<CR>
+nnoremap <Leader><space> :noh<cr>
 
 " Call format json
 map <Leader>fj :call FormatJSON()<CR>
+
+" Set spell check  region to British English
+nmap <silent> <leader>s :set spell!<CR>
+set spelllang=en_gb
