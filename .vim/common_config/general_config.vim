@@ -24,7 +24,7 @@ let mapleader=","
 syntax on
 
 " Lots of things to ignore (for Command-T and NerdTree)
-set wildignore=system,doc,vendor,log,tmp,*.o,*.fasl,CVS,.git,doc,coverage,build,generated,.hg,.svn,.bundle,*.jpg,*.png,*.gif,*.sqlite3,*.log,*.swp,*.bak,*.dll,*.exe,.sass-cache,*.class
+set wildignore=system,doc,vendor,log,tmp,*.o,*.fasl,CVS,.git,doc,coverage,build,generated,.hg,.svn,.bundle,*.jpg,*.png,*.gif,*.sqlite3,*.log,*.swp,*.bak,*.dll,*.exe,.sass-cache,*.class,.DS_Store
 
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8
 " lines from the bottom
@@ -47,9 +47,10 @@ set shiftwidth=4
 set softtabstop=4
 
 " Special indenting rules
-autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType css  setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType ruby  setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType css   setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType html  setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 " Start with folds unfolded
 set foldlevel=20
