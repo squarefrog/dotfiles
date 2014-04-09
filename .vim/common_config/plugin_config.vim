@@ -12,6 +12,7 @@ NeoBundle "vim-ruby/vim-ruby"
 NeoBundle "tpope/vim-surround"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "christoomey/vim-tmux-navigator"
+NeoBundle "kchmck/vim-coffee-script"
 
 " iOS specific plugins
 NeoBundle "eraserhd/vim-ios"
