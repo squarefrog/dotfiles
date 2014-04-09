@@ -40,6 +40,7 @@ DISABLE_CORRECTION="true"
 plugins=(git terminalapp)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.rvm/scripts/rvm
 
 # Customize to your needs...
 export PATH=$PATH:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/bin:~/AndroidDev/sdk/platform-tools
