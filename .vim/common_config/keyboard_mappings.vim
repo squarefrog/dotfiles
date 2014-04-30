@@ -17,8 +17,8 @@ map <Leader>I gg=G``<cr>
 map <Leader>c :%s/\s\+$<cr>
 
 " Make indenting easier
-nnoremap > >>
-nnoremap < <<
+vnoremap < <gv
+vnoremap > >gv
 
 " Toggle search highlighting
 nnoremap <F3> :set hlsearch!<CR>
@@ -30,3 +30,6 @@ map <Leader>fj :call FormatJSON()<CR>
 " Set spell check  region to British English
 nmap <silent> <leader>s :set spell!<CR>
 set spelllang=en_gb
+
+" Remap make Y act like other capitals
+nnoremap Y y$

@@ -5,3 +5,11 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Emulate CTRL-P
+map <C-p> :xccmd openQuickly<cr>
+
+" Case-insensitive searching.
+set ignorecase
+" But case-sensitive if expression contains a capital letter.
+set smartcase
