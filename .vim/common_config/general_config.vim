@@ -42,15 +42,9 @@ set autoread
 
 " Default spacing stuff
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
-" Special indenting rules
-autocmd FileType ruby  setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType css   setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType html  setlocal shiftwidth=2 softtabstop=2 tabstop=2
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " Start with folds unfolded
 set foldlevel=20
