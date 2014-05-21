@@ -34,9 +34,6 @@ set shiftwidth=2
 set softtabstop=2
 set foldlevel=20     " Start with folds unfolded
 set directory=/tmp/  " set temporary directory (don't litter local dir with swp/tmp files)
-syntax on            " Set syntax highlighting on
-
-colorscheme Tomorrow-Night   " Set color scheme
 
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby

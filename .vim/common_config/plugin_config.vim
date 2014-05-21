@@ -5,7 +5,6 @@ filetype off
 " Plugins requiring no additional configuration or keymaps
 NeoBundle "ddollar/nerdcommenter"
 NeoBundle "ervandew/supertab"
-NeoBundle "altercation/vim-colors-solarized"
 NeoBundle "Lokaltog/vim-easymotion"
 NeoBundle "tpope/vim-markdown"
 NeoBundle "vim-ruby/vim-ruby"
@@ -13,6 +12,7 @@ NeoBundle "tpope/vim-surround"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "kchmck/vim-coffee-script"
+NeoBundle "squarefrog/tomorrow-night.vim"
 
 " iOS specific plugins
 NeoBundle "eraserhd/vim-ios"
@@ -61,3 +61,5 @@ NeoBundle "tpope/vim-rails"
   let g:rubycomplete_rails = 1
 
 filetype plugin indent on
+syntax on
+colorscheme Tomorrow-Night   " Set color scheme
