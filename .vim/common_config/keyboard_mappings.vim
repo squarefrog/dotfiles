@@ -20,6 +20,10 @@ map <Leader>c :%s/\s\+$<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+" Mac OS X clipboard integration
+vmap <F1> :w !pbcopy<CR><CR>
+nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+
 " Toggle search highlighting
 nnoremap <F3> :set hlsearch!<CR>
 nnoremap <Leader><space> :noh<cr>
