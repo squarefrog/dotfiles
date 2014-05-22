@@ -10,6 +10,12 @@ let mapleader=","
 " Disable the pesky :Q command
 nnoremap Q <nop>
 
+" Work around my mistakes
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " Reindent all
 map <Leader>I gg=G``<cr>
 
