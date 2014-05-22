@@ -15,18 +15,10 @@ set guioptions-=L         " Remove left scrollbar
 " Set font to patched powerline font
 set guifont=Inconsolata\ for\ Powerline:h16
 
-" Searching
-set hlsearch             " highlight the search matches
-set incsearch            " show the first match as search strings are typed
-set ignorecase smartcase " searching is case insensitive when all lowercase
-
 " Have the mouse enabled all the time
 set mouse=a
 
 " Set visual bell
 set vb
-
-" Highlight trailing whitespace
-set list listchars=tab:\ \ ,trail:·
 
 runtime! custom_config/*.gvim
