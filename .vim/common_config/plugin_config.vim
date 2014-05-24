@@ -13,6 +13,7 @@ NeoBundle "kien/ctrlp.vim"
 NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "squarefrog/tomorrow-night.vim"
+NeoBundle "mattn/gist-vim"
 
 " iOS specific plugins
 NeoBundle "eraserhd/vim-ios"
