@@ -32,7 +32,7 @@ function put_spacing() {
   fi
 
   local termwidth
-  (( termwidth = ${COLUMNS} - 3 - ${#HOST} - ${#$(get_pwd)} - ${bat} - ${git} ))
+  (( termwidth = ${COLUMNS} - ${#HOST} - ${#$(get_pwd)} - ${bat} - ${git} + 4))
 
   local spacing=""
   for i in {1..$termwidth}; do
