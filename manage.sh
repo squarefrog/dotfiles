@@ -3,7 +3,7 @@
 # Modified from Keithbsmiley's script, available here:
 #   https://github.com/Keithbsmiley/dotfiles/blob/master/manage.sh
 
-FILES=(bash_profile exports gvimrc osx profile tmux.conf vim vimrc xvimrc zshrc)
+FILES=(aliases bash_profile exports gvimrc shellrc tmux.conf vim vimrc xvimrc zshrc)
 LINUX=()
 NO_DOT=()
 

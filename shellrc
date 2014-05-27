@@ -1,0 +1,8 @@
+# Path to dotfiles repo
+export DOTFILES="$(dirname $(readlink $HOME/.shellrc))"
+
+# Source common files
+for file in ~/.{exports,aliases}; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
