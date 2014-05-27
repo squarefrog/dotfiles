@@ -29,6 +29,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # Symlink all the things
+cd ..
 ./manage.sh install
 
 # Install vim packages
@@ -52,8 +53,8 @@ source "$HOME/.bashrc"
 
 # Install brew bundles
 echo "Installing Brews..."
-brew bundle $DOTFILES/Brewfile
-brew bundle $DOTFILES/Caskfile
+brew bundle $DOTFILES/osx/Brewfile
+brew bundle $DOTFILES/osx/Caskfile
 
 echo "                                                                        "
 echo "                                                                        "

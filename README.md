@@ -1,26 +1,53 @@
-# Dotfiles
+# dotfiles
 
-This is going to be a constant work in progress while I get everything set up. Heavily ~~copied~~ _influenced_ by [Ted's custom vim config](https://github.com/tedkulp/vim-config).
+## Installation in OS X
 
-## Setup
+Ensure you have installed at least the [command line developer tools](https://developer.apple.com/downloads/index.action). Ideally, you should have Xcode installed.
 
-1. `git clone git://github.com/squarefrog/dotfiles.git`
-2. `cd dotfiles`
-3. `sh setup.sh`
+You are free to clone the repository anywhere you wish.
 
----
+```
+git clone git://github.com/squarefrog/dotfiles.git && cd dotfiles/osx
+./bootstrap.sh COMPUTER_NAME
+```
 
-## Required packages
+## Adding custom settings
 
-First, install [Homebrew](http://brew.sh/), then the required brews:
+If an `extra` file exists, it will be symlinked along with all the other files. This is an ideal place for any commands that should not be checked in. For example, your `extra` file could contain your git credentials.
 
-    brew install macvim
-    brew install tmux
-    brew install reattach-to-user-namespace
-    brew install tree
+```
+# Git credentials
+# Not in the repository, to prevent people from accidentally committing under my name
+GIT_AUTHOR_NAME="John Smith"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="john.smith@example.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+```
 
-## Other nice packages
+## OS X defaults
 
-    brew install mogenerator
-    brew install python # Also installs pip
+A multitude of OS X preferences can be installed by calling the defaults bash script:
+
+```sh
+cd osx
+./.osx
+```
+
+## Install Homebrew formulae
+
+You can use a Brewfile to set up any required [Homebrew](http://brew.sh/) formulae:
+
+```sh
+brew bundle $DOTFILES/osx/Brewfile
+```
+
+## Install native apps with `brew cask`
+
+You could also install native apps with [`brew cask`](https://github.com/caskroom/homebrew-cask):
+
+```sh
+brew bundle $DOTFILES/osx/Brewfile
+```
 

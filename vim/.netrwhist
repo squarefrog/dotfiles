@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/pi/git/ios-utilities/WRNUtilities'
-let g:netrw_dirhist_2='/Users/pi/Downloads/codeslingers/_posts'
-let g:netrw_dirhist_3='/Users/pi/Documents/dotfiles/.vim/common_config'
-let g:netrw_dirhist_4='/Users/pi/Downloads/Directory'
-let g:netrw_dirhist_5='/Users/pi/Downloads/UIDeviceIdentifier/UIDeviceIdentifier'
