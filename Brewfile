@@ -14,6 +14,7 @@ install vim --override-system-vi
 install ack
 install hub
 install mogenerator
+install python
 install reattach-to-user-namespace
 install tmux
 install tree
