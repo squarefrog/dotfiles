@@ -32,29 +32,33 @@ fi
 cd ..
 ./manage.sh install
 
+# Re-source .bashrc to gain access to $DOTFILES alias
+if [[ ! -f $HOME/.shellrc ]];then
+  echo "$HOME/.shellrc does not exist. Exiting."
+  exit
+else
+  source "$HOME/.bashrc"
+fi
+
 # Install vim packages
-if [ -d "$HOME/.vim/bundle/neobundle.vim" ]; then
+if [ -d "$DOTFILES/vim/bundle/neobundle.vim" ]; then
   echo "Updating vim bundles..."
-  cd ~/.vim/bundle/neobundle.vim
+  cd $DOTFILES/vim/bundle/neobundle.vim
   git pull origin master
   cd ~
   vim +NeoBundleInstall! +qall
 else
   echo "Installing vim bundles..."
-  if [ ! -d "$HOME/.vim/bundle" ]; then
-    mkdir -p $HOME/.vim/bundle
+  if [ ! -d "$DOTFILES/vim/bundle" ]; then
+    mkdir -p $DOTFILES/vim/bundle
   fi
-  git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+  git clone https://github.com/Shougo/neobundle.vim.git $DOTFILES/vim/bundle/neobundle.vim
   vim +NeoBundleInstall! +qall
 fi
 
-# Re source .bashrc
-source "$HOME/.bashrc"
-
 # Install brew bundles
-#echo "Installing Brews..."
-#brew bundle $DOTFILES/osx/Brewfile
-#brew bundle $DOTFILES/osx/Caskfile
+echo "Installing Brews..."
+brew bundle $DOTFILES/osx/Brewfile
 
 echo "                                                                        "
 echo "                                                                        "
