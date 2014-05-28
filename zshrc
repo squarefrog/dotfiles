@@ -1,3 +1,12 @@
+# Source the major default settings shared
+# between zsh and bash
+
+if [[ ! -f $HOME/.shellrc ]];then
+  echo "$HOME/.shellrc doesn't exist. Run ./manage.sh install again"
+else
+  source $HOME/.shellrc
+fi
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -13,4 +22,3 @@ plugins=(git terminalapp)
 # Source files and paths
 source $ZSH/oh-my-zsh.sh
 source ~/.rvm/scripts/rvm
-source ~/.shellrc
