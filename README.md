@@ -51,3 +51,9 @@ You could also install native apps with [`brew cask`](https://github.com/caskroo
 brew bundle $DOTFILES/osx/Caskfile
 ```
 
+## Resources
+My setup was cherry picked from several other dotfile repositories.
+* [Ted Kulp](https://github.com/tedkulp/vim-config)
+* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles/)
+* [Keithbsmiley](https://github.com/Keithbsmiley/dotfiles)
+* [dotfiles.github.io](http://dotfiles.github.io/)
