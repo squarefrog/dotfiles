@@ -48,6 +48,6 @@ brew bundle $DOTFILES/osx/Brewfile
 You could also install native apps with [`brew cask`](https://github.com/caskroom/homebrew-cask):
 
 ```sh
-brew bundle $DOTFILES/osx/Brewfile
+brew bundle $DOTFILES/osx/Caskfile
 ```
 
