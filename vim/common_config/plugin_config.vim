@@ -6,25 +6,41 @@ filetype off
 NeoBundle "ddollar/nerdcommenter"
 NeoBundle "ervandew/supertab"
 NeoBundle "Lokaltog/vim-easymotion"
-NeoBundle "tpope/vim-markdown"
-NeoBundle "vim-ruby/vim-ruby"
 NeoBundle "tpope/vim-surround"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "christoomey/vim-tmux-navigator"
-NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "squarefrog/tomorrow-night.vim"
 NeoBundle "mattn/gist-vim"
 
+" Ruby
+NeoBundle "vim-ruby/vim-ruby"
+
+" Markdown
+NeoBundle "tpope/vim-markdown"
+
+" Coffee script
+NeoBundle "kchmck/vim-coffee-script"
+
 " iOS specific plugins
-NeoBundle "eraserhd/vim-ios"
-NeoBundle "eraserhd/vim-kiwi"
-NeoBundle "msanders/cocoa.vim"
-NeoBundle "Rip-Rip/clang_complete"
-NeoBundle "jerrymarino/xcodebuild.vim"
+NeoBundleLazy "eraserhd/vim-ios"
+NeoBundleLazy "eraserhd/vim-kiwi"
+NeoBundleLazy "msanders/cocoa.vim"
+NeoBundleLazy "Rip-Rip/clang_complete"
+NeoBundleLazy "jerrymarino/xcodebuild.vim"
 
 " Arduino
-NeoBundle "jplaut/vim-arduino-ino"
-NeoBundle "sudar/vim-arduino-syntax"
+NeoBundle "jplaut/vim-arduino-ino", {
+\  'lazy' : 1,
+\  'autoload' : {
+\    'filetypes' : ['ino', 'pde']
+\  }
+\}
+NeoBundle "sudar/vim-arduino-syntax", {
+\  'lazy' : 1,
+\  'autoload' : {
+\    'filetypes' : ['ino', 'pde']
+\  }
+\}
 
 NeoBundle "elzr/vim-json"
   let g:vim_json_syntax_conceal = 0
