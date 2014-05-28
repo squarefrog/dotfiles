@@ -52,9 +52,9 @@ fi
 source "$HOME/.bashrc"
 
 # Install brew bundles
-echo "Installing Brews..."
-brew bundle $DOTFILES/osx/Brewfile
-brew bundle $DOTFILES/osx/Caskfile
+#echo "Installing Brews..."
+#brew bundle $DOTFILES/osx/Brewfile
+#brew bundle $DOTFILES/osx/Caskfile
 
 echo "                                                                        "
 echo "                                                                        "
