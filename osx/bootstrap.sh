@@ -40,6 +40,9 @@ else
   source "$HOME/.bashrc"
 fi
 
+# Ensure theme is setup in zsh
+ln -s $DOTFILES/squarefrog.zsh-theme $HOME/.oh-my-zsh/themes/squarefrog.zsh-theme
+
 # Install vim packages
 if [ -d "$DOTFILES/vim/bundle/neobundle.vim" ]; then
   echo "Updating vim bundles..."
