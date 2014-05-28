@@ -13,3 +13,6 @@ alias json_formatter="python -mjson.tool"
 alias gs="git status"
 alias gaa="git add --all"
 alias ls="ls -G"
+
+# Temporary vim startup time log
+alias vim="vim --startuptime ~/Desktop/vim.log"
