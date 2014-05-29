@@ -1,6 +1,5 @@
 # Source the major default settings shared
 # between zsh and bash
-
 if [[ ! -f $HOME/.shellrc ]];then
   echo "$HOME/.shellrc doesn't exist. Run ./manage.sh install again"
 else
@@ -17,7 +16,7 @@ ZSH_THEME="squarefrog"
 DISABLE_CORRECTION="true"
 
 # ZSH plugins
-plugins=(git terminalapp pod)
+plugins=(brew brew-cask gem git pod terminalapp)
 
 # Source files and paths
 source $ZSH/oh-my-zsh.sh
