@@ -1,0 +1,21 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vim
+[user]
+	name = Paul Williamson
+	email = squarefrog@gmail.com
+[color]
+	ui = true
+[alias]
+	undo-commit = reset --soft HEAD^
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
