@@ -17,7 +17,7 @@ ZSH_THEME="squarefrog"
 DISABLE_CORRECTION="true"
 
 # ZSH plugins
-plugins=(git terminalapp)
+plugins=(git terminalapp pod)
 
 # Source files and paths
 source $ZSH/oh-my-zsh.sh
