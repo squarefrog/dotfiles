@@ -3,6 +3,12 @@
 # A heavily modified version of Mathias Bynens excellent .osx file.
 # ~/.osx — http://mths.be/osx
 
+# https://github.com/mathiasbynens/dotfiles/issues/5#issuecomment-4117712
+# defaults read > a
+# Change the setting
+# defaults read > b
+# diff a b
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -92,9 +98,7 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Disable “natural” (Lion-style) scrolling
