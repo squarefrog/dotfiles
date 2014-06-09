@@ -30,18 +30,8 @@ NeoBundle "vim-scripts/Match-Bracket-for-Objective-C"
 NeoBundleLazy "toyamarinyon/vim-swift", { 'filetypes' : 'swift' }
 
 " Arduino
-NeoBundle "jplaut/vim-arduino-ino", {
-\  'lazy' : 1,
-\  'autoload' : {
-\    'filetypes' : ['ino', 'pde']
-\  }
-\}
-NeoBundle "sudar/vim-arduino-syntax", {
-\  'lazy' : 1,
-\  'autoload' : {
-\    'filetypes' : ['ino', 'pde']
-\  }
-\}
+NeoBundleLazy "jplaut/vim-arduino-ino", { 'filetypes' : ['ino', 'pde'] }
+NeoBundleLazy "sudar/vim-arduino-syntax", { 'filetypes' : ['ino', 'pde'] }
 
 NeoBundle "elzr/vim-json"
   let g:vim_json_syntax_conceal = 0
