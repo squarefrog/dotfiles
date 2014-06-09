@@ -22,11 +22,12 @@ NeoBundle "tpope/vim-markdown"
 NeoBundle "kchmck/vim-coffee-script"
 
 " iOS specific plugins
-NeoBundleLazy "eraserhd/vim-ios"
-NeoBundleLazy "eraserhd/vim-kiwi"
-NeoBundleLazy "msanders/cocoa.vim"
-NeoBundleLazy "Rip-Rip/clang_complete"
-NeoBundleLazy "jerrymarino/xcodebuild.vim"
+NeoBundle "Keithbsmiley/kiwi.vim"
+NeoBundle "Rip-Rip/clang_complete"
+NeoBundle "jerrymarino/xcodebuild.vim"
+NeoBundle "b4winckler/vim-objc"
+NeoBundle "vim-scripts/Match-Bracket-for-Objective-C"
+NeoBundleLazy "toyamarinyon/vim-swift", { 'filetypes' : 'swift' }
 
 " Arduino
 NeoBundle "jplaut/vim-arduino-ino", {
