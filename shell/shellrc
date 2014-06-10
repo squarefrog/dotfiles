@@ -1,5 +1,6 @@
 # Path to dotfiles repo
-export DOTFILES="$(dirname $(readlink $HOME/.shellrc))"
+shell_folder="$(dirname $(readlink $HOME/.shellrc))"
+export DOTFILES=${shell_folder%/*}
 
 # Source common files
 for file in ~/.{exports,aliases}; do

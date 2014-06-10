@@ -41,7 +41,9 @@ else
 fi
 
 # Ensure theme is setup in zsh
-ln -s $DOTFILES/squarefrog.zsh-theme $HOME/.oh-my-zsh/themes/squarefrog.zsh-theme
+if [ -e "$HOME/.oh-my-zsh/themes/squarefrog.zsh-theme" ]; then
+  ln -s $DOTFILES/themes/squarefrog.zsh-theme $HOME/.oh-my-zsh/themes/squarefrog.zsh-theme
+fi
 
 # Install vim packages
 if [ -d "$DOTFILES/vim/bundle/neobundle.vim" ]; then
@@ -60,8 +62,21 @@ else
 fi
 
 # Install brew bundles
-echo "Installing Brews..."
-brew bundle $DOTFILES/osx/Brewfile
+echo
+echo
+read -p "Install Brews? " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Installing Brews..."
+  brew bundle $DOTFILES/osx/Brewfile
+fi
+
+echo
+echo
+read -p "Install Casks? " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Installing Casks..."
+  brew bundle $DOTFILES/osx/Caskfile
+fi
 
 echo "                                                                        "
 echo "                                                                        "

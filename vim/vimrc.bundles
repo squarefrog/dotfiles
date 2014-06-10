@@ -78,4 +78,4 @@ endif
 
 filetype plugin indent on
 syntax on
-colorscheme Tomorrow-Night   " Set color scheme
+silent! colorscheme Tomorrow-Night   " Set color scheme
