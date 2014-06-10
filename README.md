@@ -1,5 +1,9 @@
 # dotfiles
 
+## Getting started
+
+Before installing, you'll almost certainly want to Fork this Repository and customise it to fit your needs.
+
 ## Installation in OS X
 
 Ensure you have installed at least the [command line developer tools](https://developer.apple.com/downloads/index.action). Ideally, you should have Xcode installed.
