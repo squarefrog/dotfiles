@@ -2,12 +2,23 @@
 	excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
 [user]
-	name = Paul Williamson
-	email = squarefrog@gmail.com
+  name = Paul Williamson
+  email = squarefrog@gmail.com
 [color]
-	ui = true
+	ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  pager = true
+  status = auto
 [alias]
-	undo-commit = reset --soft HEAD^
+	pr = pull --rebase
+	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+	undo = reset --soft HEAD^
+  d = diff
+  dc = diff --cached
+  dt = difftool
+  l = log --graph --pretty="format:%C(yellow)%h%Cred%d%Creset %s %C(white) %C(cyan)%an%Creset, %C(green)%ar%Creset"
 [push]
 	default = simple
 [filter "media"]
@@ -15,7 +26,14 @@
 	smudge = git-media-smudge %f
 [diff]
 	tool = vimdiff
-[merge]
-	tool = vimdiff
 [difftool]
 	prompt = false
+[mergetool "fugitive"]
+    cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[mergetool]
+    prompt = false
+[merge]
+  tool = fugitive
+  log = true
+[include]
+  path = .gitconfig.local

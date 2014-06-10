@@ -13,17 +13,12 @@ git clone git://github.com/squarefrog/dotfiles.git && cd dotfiles/osx
 
 ## Adding custom settings
 
-If an `extra` file exists, it will be symlinked along with all the other files. This is an ideal place for any commands that should not be checked in. For example, your `extra` file could contain your git credentials.
+You may override the `gitconfig` file by creating a file at `~/.gitconfig.local`. As an example, this file might look like this:
 
 ```
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="John Smith"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="john.smith@example.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
+[user]
+  name = Paul Williamson
+  email = squarefrog@gmail.com
 ```
 
 ## OS X defaults
