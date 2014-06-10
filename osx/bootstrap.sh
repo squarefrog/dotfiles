@@ -49,14 +49,14 @@ if [ -d "$DOTFILES/vim/bundle/neobundle.vim" ]; then
   cd $DOTFILES/vim/bundle/neobundle.vim
   git pull origin master
   cd ~
-  vim +NeoBundleInstall! +qall
+  vim -c "NeoBundleInstall!" -c "qa!"
 else
   echo "Installing vim bundles..."
   if [ ! -d "$DOTFILES/vim/bundle" ]; then
     mkdir -p $DOTFILES/vim/bundle
   fi
   git clone https://github.com/Shougo/neobundle.vim.git $DOTFILES/vim/bundle/neobundle.vim
-  vim +NeoBundleInstall! +qall
+  vim -c "NeoBundleInstall!" -c "qa!"
 fi
 
 # Install brew bundles
