@@ -10,6 +10,7 @@ NeoBundle "tpope/vim-surround"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "squarefrog/tomorrow-night.vim"
+NeoBundle "mattn/webapi-vim"
 NeoBundle "mattn/gist-vim"
 
 " Ruby
