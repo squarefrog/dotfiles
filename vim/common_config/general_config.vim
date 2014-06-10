@@ -46,3 +46,7 @@ set mouse=a              " Allow mouse scrolling even when in tmux
 
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
+
+" Enable spell check for Markdown
+autocmd BufNewFile,BufRead *.markdown setlocal spell
+
