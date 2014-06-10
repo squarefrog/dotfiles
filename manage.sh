@@ -3,7 +3,7 @@
 # Modified from Keithbsmiley's script, available here:
 #   https://github.com/Keithbsmiley/dotfiles/blob/master/manage.sh
 
-FILES=(aliases bashrc bash_profile exports gitconfig gitignore_global gvimrc shellrc tmux.conf vim vimrc xvimrc zshrc)
+FILES=(aliases bashrc bash_profile exports gitconfig gitignore_global gvimrc shellrc tmux.conf vim vimrc vimrc.bundles xvimrc zshrc)
 LINUX=()
 NO_DOT=()
 

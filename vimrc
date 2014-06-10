@@ -5,12 +5,13 @@ runtime! before_config/*.vim
 set rtp+=~/.vim/bundle/neobundle.vim/
 call neobundle#rc()
 
-" pretty but not terminal-compatible color scheme
-" set background=dark
-" colors solarized
-
 if !has('win32')
   set shell=/bin/sh
+endif
+
+" Load in bundles file
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
 endif
 
 runtime! common_config/*.vim

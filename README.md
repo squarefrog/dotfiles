@@ -13,7 +13,12 @@ git clone git://github.com/squarefrog/dotfiles.git && cd dotfiles/osx
 
 ## Adding custom settings
 
-You may override the `gitconfig` file by creating a file at `~/.gitconfig.local`. As an example, this file might look like this:
+You may add your own customisations by appending the dotfile name with `.local`.
+
+* `~/.gitconfig.local`
+* `~/.vimrc.bundles.local`
+
+As an example, your `~/.gitconfig.local` file might look like this:
 
 ```
 [user]
@@ -52,3 +57,4 @@ My setup was cherry picked from several other dotfile repositories.
 * [Mathias Bynens](https://github.com/mathiasbynens/dotfiles/)
 * [Keithbsmiley](https://github.com/Keithbsmiley/dotfiles)
 * [dotfiles.github.io](http://dotfiles.github.io/)
+* [thoughtbot](https://github.com/thoughtbot/dotfiles)

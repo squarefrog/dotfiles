@@ -71,6 +71,11 @@ NeoBundle "tpope/vim-rails"
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
 
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
 filetype plugin indent on
 syntax on
 colorscheme Tomorrow-Night   " Set color scheme
