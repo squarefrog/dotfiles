@@ -19,8 +19,13 @@ git clone git://github.com/squarefrog/dotfiles.git && cd dotfiles/osx
 
 You may add your own customisations by appending the dotfile name with `.local`.
 
+* `~/.aliases.local`
 * `~/.gitconfig.local`
+* `~/.gvimrc.local`
+* `~/.tmux.conf.local`
 * `~/.vimrc.bundles.local`
+* `~/.vimrc.local`
+* `~/.zshrc.local`
 
 As an example, your `~/.gitconfig.local` file might look like this:
 
@@ -36,7 +41,7 @@ A multitude of OS X preferences can be installed by calling the defaults bash sc
 
 ```sh
 cd osx
-./.osx
+./setup_defaults.sh
 ```
 
 ## Install Homebrew formulae

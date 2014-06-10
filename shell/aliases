@@ -16,3 +16,6 @@ alias ls="ls -G"
 
 # Temporary vim startup time log
 alias vim="vim --startuptime ~/Desktop/vim.log"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
