@@ -41,7 +41,7 @@ else
 fi
 
 # Ensure theme is setup in zsh
-if [ -e "$HOME/.oh-my-zsh/themes/squarefrog.zsh-theme" ]; then
+if [ ! -e "$HOME/.oh-my-zsh/themes/squarefrog.zsh-theme" ]; then
   ln -s $DOTFILES/themes/squarefrog.zsh-theme $HOME/.oh-my-zsh/themes/squarefrog.zsh-theme
 fi
 
