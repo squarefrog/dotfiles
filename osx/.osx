@@ -474,3 +474,10 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 done
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+###############################################################################
+# Sounds                                                                      #
+###############################################################################
+
+# Disable feedback when volume changes
+defaults write -g com.apple.sound.beep.feedback -boolean NO
