@@ -119,6 +119,11 @@ set spelllang=en_gb
 " Remap make Y act like other capitals
 nnoremap Y y$
 
+" Quick edit vimrc in a new vertical split
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Quick edit vimrc.bundles in a new vertical split
+nnoremap <leader>eb :vsplit ~/.vimrc.bundles<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
