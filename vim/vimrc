@@ -86,10 +86,10 @@ let mapleader=","
 nnoremap Q <nop>
 
 " Work around my mistakes
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+cmap WQ wq
+cmap Wq wq
+cmap W w
+cmap Q q
 
 " Reindent all
 map <Leader>I gg=G``<cr>
@@ -141,7 +141,7 @@ function! FormatJSON()
 endfunction
 
 " Insert current date stamp in jekyll format
-:nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %z")<CR>p
+nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %z")<CR>p
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
