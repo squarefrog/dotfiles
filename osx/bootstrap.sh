@@ -48,6 +48,12 @@ if [ ! -e "$HOME/.oh-my-zsh/themes/squarefrog.zsh-theme" ]; then
   ln -s $DOTFILES/themes/squarefrog.zsh-theme $HOME/.oh-my-zsh/themes/squarefrog.zsh-theme
 fi
 
+# Setup Xcode theme
+if [ ! -d "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/tomorrow-night-xcode.dvcolortheme" ]; then
+  mkdir -p "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+  cp "$DOTFILES/themes/tomorrow-night-xcode.dvcolortheme" "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+fi
+
 # Install vim packages
 if [ -d "$DOTFILES/vim/bundle/neobundle.vim" ]; then
   echo "Updating vim bundles..."
