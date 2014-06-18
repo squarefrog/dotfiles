@@ -408,6 +408,24 @@ defaults write com.apple.terminal StringEncodings -array 4
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+
+###############################################################################
+# Xcode                                                                       #
+###############################################################################
+
+# Open file in new tab when double-clicked
+defaults write com.apple.dt.Xcode IDEEditorCoordinatorTarget_DoubleClick "SeparateTab"
+
+# Show line numbers
+defaults write com.apple.dt.Xcode DVTTextShowLineNumbers 1
+
+# Show line guide at 80 characters
+defaults write com.apple.dt.Xcode DVTTextShowPageGuide 1
+
+# Set Xcode theme
+defaults write com.apple.dt.Xcode DVTFontAndColorCurrentTheme "tomorrow-night-xcode.dvtcolortheme"
+
+
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
