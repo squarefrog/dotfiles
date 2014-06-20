@@ -20,7 +20,10 @@ plugins=(brew brew-cask gem git pod terminalapp)
 
 # Source files and paths
 source $ZSH/oh-my-zsh.sh
-source ~/.rvm/scripts/rvm
+
+if [ -f ~/.rvm/scripts/rvm ]; then
+  source ~/.rvm/scripts/rvm
+fi
 
 # Load the zsh-syntax-highlighting plugin
 if [ -f $DOTFILES/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
