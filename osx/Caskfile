@@ -21,6 +21,7 @@ cask install macvim
 cask install onepassword
 cask install spotify
 cask install teensy
+cask install vlc
 
 # Add font support
 tap caskroom/fonts
