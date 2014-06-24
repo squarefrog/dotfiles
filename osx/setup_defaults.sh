@@ -502,3 +502,13 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 
 # Disable feedback when volume changes
 defaults write -g com.apple.sound.beep.feedback -boolean NO
+
+###############################################################################
+# Sleep Settings                                                              #
+###############################################################################
+
+# Sleep after 3 hours
+sudo pmset sleep 180
+
+# Sleep display after 20 minutes
+sudo pmset displaysleep 20
