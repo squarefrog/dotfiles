@@ -265,6 +265,9 @@ defaults write com.apple.dock autohide -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
+# Add iOS Simulator to Launchpad
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app"
+
 # Hot corners
 # Possible values:
 #  0: no-op
@@ -510,8 +513,8 @@ defaults write -g com.apple.sound.beep.feedback -boolean NO
 # From https://github.com/rtrouton/rtrouton_scripts/
 IS_LAPTOP=`/usr/sbin/system_profiler SPHardwareDataType | grep "Model Identifier" | grep "Book"`
 if [[ "$IS_LAPTOP" != "" ]]; then
-  pmset -b sleep 15 disksleep 10 displaysleep 5 halfdim 1
-  pmset -c sleep 180 disksleep 10 displaysleep 20 halfdim 1
+  sudo pmset -b sleep 15 disksleep 10 displaysleep 5 halfdim 1
+  sudo pmset -c sleep 180 disksleep 10 displaysleep 20 halfdim 1
 else
-  pmset sleep 180 disksleep 10 displaysleep 20 halfdim 1
+  sudo pmset sleep 180 disksleep 10 displaysleep 20 halfdim 1
 fi
