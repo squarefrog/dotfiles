@@ -65,6 +65,10 @@ set clipboard=unnamed
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
+" XML
+let g:xml_syntax_folding=1
+"au FileType xml setlocal foldmethod=syntax
+
 " Enable spell check for Markdown
 autocmd BufNewFile,BufRead *.markdown setlocal spell
 
