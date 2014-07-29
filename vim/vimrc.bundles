@@ -5,44 +5,44 @@ filetype off
 " Plugins requiring no additional configuration or keymaps
 NeoBundle "ddollar/nerdcommenter"
 NeoBundle "ervandew/supertab"
-NeoBundle "Lokaltog/vim-easymotion"
+"NeoBundle "Lokaltog/vim-easymotion"
 NeoBundle "tpope/vim-surround"
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "squarefrog/tomorrow-night.vim"
-NeoBundle "mattn/webapi-vim"
-NeoBundle "mattn/gist-vim"
+"NeoBundle "mattn/webapi-vim"
+"NeoBundle "mattn/gist-vim"
 
 " Ruby
-NeoBundle "vim-ruby/vim-ruby"
+NeoBundleLazy "vim-ruby/vim-ruby", { 'autoload' : { 'filetypes' : ['ruby'] }}
 
 " Markdown
-NeoBundle "tpope/vim-markdown"
+NeoBundleLazy "tpope/vim-markdown", { 'autoload' : { 'filetypes' : ['markdown'] }}
 
 " Coffee script
-NeoBundle "kchmck/vim-coffee-script"
+NeoBundleLazy "kchmck/vim-coffee-script", { 'autoload' : { 'filetypes' : ['coffee'] }}
 
 " iOS specific plugins
-NeoBundle "Keithbsmiley/kiwi.vim"
-NeoBundle "jerrymarino/xcodebuild.vim"
-NeoBundle "b4winckler/vim-objc"
-NeoBundle "vim-scripts/Match-Bracket-for-Objective-C"
-NeoBundleLazy "toyamarinyon/vim-swift", { 'filetypes' : 'swift' }
+NeoBundleLazy "Keithbsmiley/kiwi.vim", { 'autoload' : { 'filetypes' : ['objc', 'swift'] }}
+NeoBundleLazy "jerrymarino/xcodebuild.vim", { 'autoload' : { 'filetypes' : ['objc', 'swift'] }}
+NeoBundleLazy "b4winckler/vim-objc", { 'autoload' : { 'filetypes' : ['objc', 'swift'] }}
+NeoBundleLazy "vim-scripts/Match-Bracket-for-Objective-C", { 'autoload' : { 'filetypes' : ['objc', 'swift'] }}
+NeoBundleLazy "toyamarinyon/vim-swift", { 'autoload' : { 'filetypes' : 'swift' }}
 
-NeoBundle "Rip-Rip/clang_complete"
-  let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+"NeoBundle "Rip-Rip/clang_complete"
+  "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
 
 " Arduino
-NeoBundleLazy "jplaut/vim-arduino-ino", { 'filetypes' : ['ino', 'pde'] }
-NeoBundleLazy "sudar/vim-arduino-syntax", { 'filetypes' : ['ino', 'pde'] }
+NeoBundleLazy "jplaut/vim-arduino-ino", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
+NeoBundleLazy "sudar/vim-arduino-syntax", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
 
-NeoBundle "elzr/vim-json"
-  let g:vim_json_syntax_conceal = 0
-  set foldmethod=syntax
+"NeoBundle "elzr/vim-json"
+  "let g:vim_json_syntax_conceal = 0
+  "set foldmethod=syntax
 
-NeoBundle "scrooloose/nerdtree"
-  let NERDTreeShowHidden=1
-  nmap gt :NERDTreeToggle<CR>
+"NeoBundle "scrooloose/nerdtree"
+  "let NERDTreeShowHidden=1
+  "nmap gt :NERDTreeToggle<CR>
 
 
 NeoBundle "bling/vim-airline"
@@ -67,9 +67,9 @@ NeoBundle "tpope/vim-fugitive"
   map <leader>gw :Gwrite<CR>
 
 
-NeoBundle "tpope/vim-rails"
-  let g:rubycomplete_buffer_loading = 1
-  let g:rubycomplete_rails = 1
+"NeoBundle "tpope/vim-rails"
+  "let g:rubycomplete_buffer_loading = 1
+  "let g:rubycomplete_rails = 1
 
 
 if filereadable(expand("~/.vimrc.bundles.local"))
