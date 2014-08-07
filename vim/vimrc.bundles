@@ -12,6 +12,7 @@ NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "squarefrog/tomorrow-night.vim"
 "NeoBundle "mattn/webapi-vim"
 "NeoBundle "mattn/gist-vim"
+NeoBundle "tpope/vim-unimpaired"
 
 " Ruby
 NeoBundleLazy "vim-ruby/vim-ruby", { 'autoload' : { 'filetypes' : ['ruby'] }}
