@@ -159,10 +159,8 @@ defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture disable-shadow -bool true
 
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
-
-# Enable HiDPI display modes (requires restart)
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+# Yosemite looks awful with this set to 2, so try 1 instead
+defaults write NSGlobalDomain AppleFontSmoothing -int 1
 
 ###############################################################################
 # Finder                                                                      #
