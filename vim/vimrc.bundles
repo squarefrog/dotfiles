@@ -77,6 +77,3 @@ if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
 
-filetype plugin indent on
-syntax on
-silent! colorscheme Tomorrow-Night   " Set color scheme
