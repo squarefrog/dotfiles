@@ -119,6 +119,7 @@ nmap <F2> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nnoremap <F3> :set hlsearch!<CR>
 nnoremap <Leader><space> :noh<cr>
 
+" Show highlight group below cursor
 nnoremap <F4> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
