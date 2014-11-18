@@ -41,9 +41,9 @@ NeoBundleLazy "sudar/vim-arduino-syntax", { 'autoload' : { 'filetypes' : ['ino',
   "let g:vim_json_syntax_conceal = 0
   "set foldmethod=syntax
 
-"NeoBundle "scrooloose/nerdtree"
+NeoBundle "scrooloose/nerdtree"
   "let NERDTreeShowHidden=1
-  "nmap gt :NERDTreeToggle<CR>
+  nmap gt :NERDTreeToggle<CR>
 
 
 NeoBundle "bling/vim-airline"
