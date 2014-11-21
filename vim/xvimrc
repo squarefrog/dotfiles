@@ -13,3 +13,7 @@ map <C-p> :xccmd openQuickly<cr>
 set ignorecase
 " But case-sensitive if expression contains a capital letter.
 set smartcase
+
+" Make indenting easier
+vnoremap < <gv
+vnoremap > >gv
