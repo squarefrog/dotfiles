@@ -155,6 +155,9 @@ function! FormatJSON()
   :%!python -m json.tool
 endfunction
 
+" Add a function call so when i forget what the mapping is I'm not stuck..
+command! PrettyJSON call FormatJSON()
+
 " Insert current date stamp in jekyll format
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M:%S %z")<CR>p
 
