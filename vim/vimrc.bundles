@@ -47,10 +47,10 @@ NeoBundle "scrooloose/nerdtree"
 
 
 NeoBundle "bling/vim-airline"
-  let g:airline_theme             = 'tomorrow'
-  let g:airline_enable_branch     = 1
-  let g:airline_enable_syntastic  = 1
-  let g:airline_powerline_fonts   = 1
+  let g:airline_theme = 'tomorrow'
+  let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#syntastic#enabled = 1
+  let g:airline_powerline_fonts = 1
   set encoding=utf-8
   set laststatus=2 " Force airline to show all the time
   set nocompatible " Disable vi-compatibility
