@@ -37,9 +37,9 @@ NeoBundleLazy "toyamarinyon/vim-swift", { 'autoload' : { 'filetypes' : 'swift' }
 NeoBundleLazy "jplaut/vim-arduino-ino", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
 NeoBundleLazy "sudar/vim-arduino-syntax", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
 
-"NeoBundle "elzr/vim-json"
-  "let g:vim_json_syntax_conceal = 0
-  "set foldmethod=syntax
+NeoBundle "elzr/vim-json"
+  let g:vim_json_syntax_conceal = 0
+  set foldmethod=syntax
 
 NeoBundle "scrooloose/nerdtree"
   "let NERDTreeShowHidden=1
