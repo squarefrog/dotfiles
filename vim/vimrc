@@ -140,6 +140,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Quick edit vimrc.bundles in a new vertical split
 nnoremap <leader>eb :vsplit ~/.vimrc.bundles<cr>
 
+" I don't want help!
+nmap <F1> :echo<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
