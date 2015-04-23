@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+source ../scripts/ask_for_confirmation.sh
+
 # This is a script for bootstrapping OS X setup
 
 if ! which xcodebuild &> /dev/null; then
@@ -73,27 +76,24 @@ else
   vim -c "NeoBundleInstall!" -c "qa!"
 fi
 
+echo
+echo
+
 # Install brew bundles
-echo
-echo
-read -p "Install Brews? " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+seek_confirmation "Install Brews?"
+if is_confirmed; then
   echo "Installing Brews..."
   brew bundle $DOTFILES/osx/Brewfile
 fi
 
-echo
-echo
-read -p "Install Casks? " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+seek_confirmation "Install Casks?"
+if is_confirmed; then
   echo "Installing Casks..."
   brew bundle $DOTFILES/osx/Caskfile
 fi
 
-echo
-echo
-read -p "Install Alcatraz? " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]; then
+seek_confirmation "Install Alcatraz?"
+if is_confirmed; then
   echo "Installing Alcatraz..."
   curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
 fi
