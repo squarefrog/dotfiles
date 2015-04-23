@@ -12,10 +12,8 @@ cask install arduino
 cask install charles
 cask install dropbox
 cask install flux
-cask install github
 cask install gitx-rowanj
 cask install google-chrome
-cask install imageoptim
 cask install iterm2
 cask install macvim
 cask install onepassword
