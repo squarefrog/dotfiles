@@ -55,9 +55,9 @@ if [ ! -e "$HOME/.oh-my-zsh/themes/squarefrog.zsh-theme" ]; then
 fi
 
 # Setup Xcode theme
-if [ ! -d "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/tomorrow-night-xcode.dvcolortheme" ]; then
+if [ ! -d "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/tomorrow-night-xcode.dvtcolortheme" ]; then
   mkdir -p "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
-  cp "$DOTFILES/themes/tomorrow-night-xcode.dvcolortheme" "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+  cp "$DOTFILES/themes/tomorrow-night-xcode.dvtcolortheme" "$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
 fi
 
 # Install vim packages
@@ -96,6 +96,12 @@ seek_confirmation "Install Alcatraz?"
 if is_confirmed; then
   echo "Installing Alcatraz..."
   curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
+fi
+
+seek_confirmation "Install Dotfiles?"
+if is_confirmed; then
+  cd $DOTFILES/osx
+  source setup_defaults.sh
 fi
 
 echo "                                                                        "
