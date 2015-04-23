@@ -19,7 +19,7 @@ echo "                                                                          
 
 if ! which brew &> /dev/null; then
   echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
   echo "Updating homebrew..."
   brew update && brew upgrade
