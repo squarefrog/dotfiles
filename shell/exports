@@ -9,6 +9,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export EDITOR="vim"
 
 # Paths
-export PATH=$PATH:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/bin:~/AndroidDev/sdk/platform-tools
+export PATH=$PATH:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/bin:
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
