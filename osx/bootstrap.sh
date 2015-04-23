@@ -104,6 +104,11 @@ if is_confirmed; then
   source setup_defaults.sh
 fi
 
+seek_confirmation "Install OS X Updates?"
+if is_confirmed; then
+  sudo softwareupdate -i -a
+fi
+
 echo "                                                                        "
 echo "                                                                        "
 echo "........................................................................"
