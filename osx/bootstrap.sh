@@ -25,6 +25,9 @@ else
   brew update && brew upgrade
 fi
 
+echo "Adding Brewfile support..."
+brew tap Homebrew/bundle
+
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing oh my zsh..."
   git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
