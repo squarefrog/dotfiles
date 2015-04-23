@@ -399,6 +399,11 @@ killall mds > /dev/null 2>&1
 # Make sure indexing is enabled for the main volume
 sudo mdutil -i on / > /dev/null
 
+# Allow spotlight for system files
+defaults write com.apple.finder SlicesRootAttributes -array-add \
+  kMDItemFSInvisible \
+  com_apple_SearchSystemFilesAttribute
+
 # Rebuild the index from scratch
 #sudo mdutil -E / > /dev/null
 
