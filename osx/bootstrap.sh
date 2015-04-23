@@ -90,6 +90,14 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   brew bundle $DOTFILES/osx/Caskfile
 fi
 
+echo
+echo
+read -p "Install Alcatraz? " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Installing Alcatraz..."
+  curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
+fi
+
 echo "                                                                        "
 echo "                                                                        "
 echo "........................................................................"
