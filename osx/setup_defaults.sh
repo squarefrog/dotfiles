@@ -41,9 +41,63 @@ if [[ $? != 0 ]]; then
 fi
 ok
 
+# Make sure we are using the latest Homebrew
 running "updating homebrew"
 brew update
 ok
+
+bot "Before installing brew packages, we can upgrade any outdated packages."
+read -r -p "run brew upgrade? [y|N] " response
+if [[ $response =~ ^(y|yes|Y) ]];then
+  # Upgrade any already-installed formulae
+  action "upgrade brew packages..."
+  brew upgrade
+  ok "brews updated..."
+else
+  ok "skipped brew package upgrades.";
+fi
+
+
+###############################################################################
+# Native Apps (via brew cask)
+###############################################################################
+
+bot "Installing homebrew command-line tools"
+
+require_brew mogenerator
+require_brew python
+require_brew reattach-to-user-namespace
+require_brew tmux
+require_brew tree
+require_brew vim --override-system-vi
+require_brew xctool
+
+
+###############################################################################
+# Native Apps (via brew cask)
+###############################################################################
+
+#bot "Installing GUI tools via homebrew casks..."
+#brew tap caskroom/versions > /dev/null 2>&1
+
+#require_cask adium
+#require_cask alfred
+#require_cask arduino
+#require_cask dropbox
+#require_cask flux
+#require_cask gitx-rowanj
+#require_cask google-chrome
+#require_cask iterm2
+#require_cask macvim
+#require_cask onepassword
+#require_cask spotify
+#require_cask teensy
+#require_cask vlc
+
+bot "Alright, cleaning up homebrew cache..."
+# Remove outdated versions from the cellar
+brew cleanup > /dev/null 2>&1
+bot "All clean"
 
 
 ###############################################################################
