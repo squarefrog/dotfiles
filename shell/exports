@@ -12,3 +12,7 @@ export EDITOR="vim"
 export PATH=$PATH:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/bin:
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Custom RubyGem global location
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
