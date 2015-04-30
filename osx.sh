@@ -51,7 +51,7 @@ read -r -p "run brew upgrade? [y|N] " response
 if [[ $response =~ ^(y|yes|Y) ]];then
   # Upgrade any already-installed formulae
   action "upgrade brew packages..."
-  brew upgrade
+  brew upgrade -all
   ok "brews updated..."
 else
   ok "skipped brew package upgrades.";
@@ -98,6 +98,13 @@ bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
 brew cleanup > /dev/null 2>&1
 bot "All clean"
+
+
+###############################################################################
+bot "Installing Ruby Gems..."
+###############################################################################
+
+require_gem cocoapods
 
 
 ###############################################################################
