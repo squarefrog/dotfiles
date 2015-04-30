@@ -64,6 +64,7 @@ fi
 
 bot "Installing homebrew command-line tools"
 
+require_brew gnu-sed --with-default-names
 require_brew mogenerator
 require_brew python
 require_brew reattach-to-user-namespace
@@ -175,6 +176,30 @@ ok
 
 running "Disable feedback when volume changes"
 defaults write -g com.apple.sound.beep.feedback -boolean NO;ok
+
+
+###############################################################################
+bot "Configuring App Store"
+###############################################################################
+
+running "Automatically check for updates"
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticCheckEnabled -bool YES;ok
+
+running "Automatically download updates in the background"
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticDownload -bool YES;ok
+
+running "Automatically install purchases from other computers"
+#sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist ConfigDataInstall -bool YES;ok
+
+running "Automatically install critical updates"
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist CriticalUpdateInstall -bool YES;ok
+
+running "Don't automatically restart after updates"
+sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdateRestartRequired -bool YES;ok
+sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdateRestartRequired -bool NO;ok
+
+running "Automatically update apps"
+sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bool YES;ok
 
 
 ###############################################################################
