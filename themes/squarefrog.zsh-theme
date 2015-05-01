@@ -12,7 +12,11 @@ print -rP '
 '
 }
 RPROMPT=' $(git_prompt_info)'
-PROMPT='%F{cyan}%m: %F{yellow}$(get_pwd) %f$ '
+
+# Show computer name
+#PROMPT='%F{cyan}%m: %F{yellow}$(get_pwd) %f$ '
+
+PROMPT='%F{yellow}$(get_pwd) %f$ '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
