@@ -550,14 +550,14 @@ bot "Configuring Terminal & iTerm 2"
 running "Only use UTF-8 in Terminal.app"
 defaults write com.apple.terminal StringEncodings -array 4;ok
 
-#running "Use a modified version of the Pro theme by default in Terminal.app"
-#open "${HOME}/init/Mathias.terminal"
-#sleep 1 # Wait a bit to make sure the theme is loaded
-#defaults write com.apple.terminal "Default Window Settings" -string "Mathias"
-#defaults write com.apple.terminal "Startup Window Settings" -string "Mathias";ok
+running "Use Tomorrow Night theme by default in Terminal.app"
+open "${DOTFILES}/themes/TomorrowNight.terminal"
+sleep 1 # Wait a bit to make sure the theme is loaded
+defaults write com.apple.terminal "Default Window Settings" -string "TomorrowNight"
+defaults write com.apple.terminal "Startup Window Settings" -string "TomorrowNight";ok
 
-#running "Install pretty iTerm colors"
-#open "${HOME}/init/Mathias.itermcolors";ok
+running "Use Tomorrow Night theme in iTerm"
+open "${DOTFILES}/themes/TomorrowNight.itermcolors";ok
 
 running "Don’t display the annoying prompt when quitting iTerm"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false;ok
