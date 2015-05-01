@@ -21,7 +21,7 @@ if [[ ${PIPESTATUS[0]} != 0 ]]; then
 	running "changing your login shell to zsh"
 	chsh -s $(which zsh);ok
 else
-	bot "looks like you are already using zsh. woot!"
+	bot "Looks like you are already using zsh. woot!"
 fi
 
 pushd ~ > /dev/null 2>&1
@@ -47,7 +47,7 @@ function symlinkifne {
     echo -en 'linked';ok
 }
 
-bot "creating symlinks for project dotfiles..."
+bot "Creating symlinks for project dotfiles..."
 symlinkifne .aliases
 symlinkifne .bashrc
 symlinkifne .gitconfig
@@ -69,21 +69,21 @@ fi
 
 ZSHTHEME="$DOTFILES/oh-my-zsh/custom/themes/squarefrog.zsh-theme"
 if [[ ! -e $ZSHTHEME ]]; then
-  bot "installing awesome zsh theme..."
+  bot "Installing awesome zsh theme..."
   mkdir -p $DOTFILES/oh-my-zsh/custom/themes
   ln -s $DOTFILES/themes/squarefrog.zsh-theme $ZSHTHEME
 else
-  bot "zsh theme already linked"
+  bot "Zsh theme already linked"
 fi
 
 if [[ -d "$HOME/.vim/bundle/neobundle.vim" ]]; then
-  bot "updating vim packages..."
+  bot "Updating vim packages..."
   cd $HOME/.vim/bundle/neobundle.vim
   git pull origin master > /dev/null 2>&1
   cd $DOTFILES
   vim -c "NeoBundleInstall!" -c "qa!"
 else
-  bot "installing neobundle.vim..."
+  bot "Installing neobundle.vim..."
   if [ ! -d "$HOME/.vim/bundle" ]; then
     mkdir -p $HOME/.vim/bundle
   fi
@@ -93,7 +93,7 @@ fi
 
 PLUGIN_PATH="${HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin"
 if [[ ! -d $PLUGIN_PATH ]]; then
-  bot "installing Alcatraz..."
+  bot "Installing Alcatraz..."
   curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/master/Scripts/install.sh | sh > /dev/null 2>&1
 else
   bot "Alcatraz already installed"
