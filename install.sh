@@ -14,61 +14,7 @@ if [[ ! -e ~/.dotfiles_backup ]]; then
     mkdir ~/.dotfiles_backup
 fi
 
-bot "Hi. I'm going to setup your system for you. But first, I need to configure this project based on your info so you don't check in files to GitHub as Paul Williamson from here on out :)"
-
-#fullname=`osascript -e "long user name of (system info)"`
-
-#lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
-#firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
-#email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
-
-#if [[ ! "$firstname" ]];then
-  #response='n'
-#else
-  #echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
-  #read -r -p "Is this correct? [Y|n] " response
-#fi
-
-#if [[ $response =~ ^(no|n|N) ]];then
-	#read -r -p "What is your first name? " firstname
-	#read -r -p "What is your last name? " lastname
-#fi
-#fullname="$firstname $lastname"
-
-#bot "Great $fullname, "
-
-#if [[ ! $email ]];then
-  #response='n'
-#else
-  #echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
-  #read -r -p "Is this correct? [Y|n] " response
-#fi
-
-#if [[ $response =~ ^(no|n|N) ]];then
-	#read -r -p "What is your email? " email
-#fi
-
-#read -r -p "What is your github.com username? " githubuser
-
-#running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
-
-#test if gnu-sed or osx sed
-
-#sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
-#if [[ ${PIPESTATUS[0]} != 0 ]]; then
-  #echo
-  #running "looks like you are using OSX sed rather than gnu-sed, accommodating"
-  #sed -i '' 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
-  #sed -i '' 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  #sed -i '' 's/atomantic/'$githubuser'/' .gitconfig;
-  #sed -i '' 's/antic/'$(whoami)'/g' .zshrc;ok
-#else
-  #echo
-  #bot "looks like you are already using gnu-sed. woot!"
-  #sed -i 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  #sed -i 's/atomantic/'$githubuser'/' .gitconfig;
-  #sed -i 's/antic/'$(whoami)'/g' .zshrc;ok
-#fi
+bot "Hello! Let's rock!"
 
 echo $0 | grep zsh > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
@@ -155,6 +101,6 @@ fi
 
 popd > /dev/null 2>&1
 
-#./osx.sh
+./osx.sh
 
 bot "Woot! All done."

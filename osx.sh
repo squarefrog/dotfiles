@@ -662,9 +662,9 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # Kill affected applications                                                  #
 ###############################################################################
 
-bot "OK. No. Note that some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
+bot "OK. Some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" \ "Terminal" ; do
+  "Dock" "Finder" "Mail" "Messages" "Safari" "SystemUIServer" ; do
   killall "${app}" > /dev/null 2>&1
 done
