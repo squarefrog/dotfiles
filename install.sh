@@ -76,6 +76,18 @@ else
   bot "Zsh theme already linked"
 fi
 
+THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
+XCODETHEMES_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+if [[ ! -e "$XCODETHEMES_DIR/$THEME_NAME" ]]; then
+  bot "Installing Tomorrow Night Xcode theme..."
+  if [[ ! -d "$XCODETHEMES_DIR" ]]; then
+    mkdir -p $XCODETHEMES_DIR
+  fi
+  ln -s "$DOTFILES/themes/$THEME_NAME" "$XCODETHEMES_DIR/$THEME_NAME"
+else
+  bot "Xcode theme already installed"
+fi
+
 if [[ -d "$HOME/.vim/bundle/neobundle.vim" ]]; then
   bot "Updating vim packages..."
   cd $HOME/.vim/bundle/neobundle.vim
