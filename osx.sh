@@ -43,7 +43,7 @@ ok
 
 # Make sure we are using the latest Homebrew
 running "updating homebrew"
-brew update
+brew update 2>&1 > /dev/null
 ok
 
 bot "Before installing brew packages, we can upgrade any outdated packages."
@@ -109,8 +109,33 @@ require_gem cocoapods
 
 
 ###############################################################################
-bot "Configuring General System UI/UX..."
+bot "Installing Fonts..."
 ###############################################################################
+
+FONTS_DIR="$HOME/Library/Fonts"
+INCONSOLATA_LOC="$FONTS_DIR/Inconsolata-Powerline.otf"
+if [[ ! -e $INCONSOLATA ]]; then
+  running "installing Inconsolata for Powerline"
+  if [[ ! -d "$FONTS_DIR" ]]; then
+    mkdir -p $FONTS_DIR
+  fi
+  ln -s $DOTFILES/fonts/Inconsolata-Powerline.otf $INCONSOLATA_LOC;ok
+else
+  bot "Inconsolata for Powerline already installed"
+fi
+
+INCONSOLATADZ_LOC="$FONTS_DIR/Inconsolata-dz-Powerline.otf"
+if [[ ! -e $INCONSOLATA ]]; then
+  running "installing Inconsolata-dz for Powerline"
+  ln -s $DOTFILES/fonts/Inconsolata-dz-Powerline.otf $INCONSOLATADZ_LOC;ok
+else
+  bot "Inconsolata for Powerline-dz already installed"
+fi
+
+
+###############################################################################
+bot "Configuring General System UI/UX..."
+##############################################################################
 
 running "Show fast user switching menu as: icon"
 defaults write -g userMenuExtraStyle -int 2;ok
@@ -155,7 +180,7 @@ running "Set Help Viewer windows to non-floating mode"
 defaults write com.apple.helpviewer DevMode -bool true;ok
 
 running "Restart automatically if the computer freezes"
-systemsetup -setrestartfreeze on;ok
+sudo systemsetup -setrestartfreeze on;ok
 
 running "Disable smart quotes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;ok
