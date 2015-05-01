@@ -3,7 +3,7 @@ shell_folder="$(dirname $(readlink $HOME/.shellrc))"
 export DOTFILES=${shell_folder}
 
 # Source common files
-for file in ~/.{exports,aliases}; do
+for file in ~/.{profile,aliases}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
