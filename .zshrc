@@ -16,7 +16,7 @@ ZSH_THEME="squarefrog"
 DISABLE_CORRECTION="true"
 
 # ZSH plugins
-plugins=(brew brew-cask gem git pod terminalapp)
+plugins=(brew brew-cask gem git pod terminalapp xcode z)
 
 # Source files and paths
 source $ZSH/oh-my-zsh.sh
@@ -26,9 +26,9 @@ if [ -f ~/.rvm/scripts/rvm ]; then
 fi
 
 # Load the zsh-syntax-highlighting plugin
-if [ -f $DOTFILES/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+if [ -f $DOTFILES/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
 then
-  source $DOTFILES/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $DOTFILES/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
   # Enable higlighting
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
