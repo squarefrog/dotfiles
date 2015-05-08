@@ -577,13 +577,20 @@ running "only use UTF-8 in Terminal.app"
 defaults write com.apple.terminal StringEncodings -array 4;ok
 
 running "use Tomorrow Night theme by default in Terminal.app"
-open "${DOTFILES}/themes/TomorrowNight.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
+if [[ -z $(defaults read com.apple.Terminal "Window Settings" | grep Tomorrow) ]]; then
+  open "${DOTFILES}/themes/TomorrowNight.terminal"
+  sleep 1 # Wait a bit to make sure the theme is loaded
+fi
+ok
+
 defaults write com.apple.terminal "Default Window Settings" -string "TomorrowNight"
 defaults write com.apple.terminal "Startup Window Settings" -string "TomorrowNight";ok
 
 running "use Tomorrow Night theme in iTerm"
-open "${DOTFILES}/themes/TomorrowNight.itermcolors";ok
+if [[ -z $(defaults read com.googlecode.iterm2 "Custom Color Presets" | grep Tomorrow) ]]; then
+  open "${DOTFILES}/themes/TomorrowNight.itermcolors"
+fi
+ok
 
 running "don’t display the annoying prompt when quitting iTerm"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false;ok
