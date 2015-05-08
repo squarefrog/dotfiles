@@ -50,6 +50,7 @@ function symlinkifne {
 bot "Creating symlinks for project dotfiles..."
 symlinkifne .aliases
 symlinkifne .bashrc
+symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore_global
 symlinkifne .gvimrc

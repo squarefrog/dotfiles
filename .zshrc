@@ -16,7 +16,7 @@ ZSH_THEME="squarefrog"
 DISABLE_CORRECTION="true"
 
 # ZSH plugins
-plugins=(brew brew-cask gem git pod terminalapp xcode z)
+plugins=(brew brew-cask gem git git-flow pod terminalapp xcode z)
 
 # Source files and paths
 source $ZSH/oh-my-zsh.sh
