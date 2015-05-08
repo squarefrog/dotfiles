@@ -561,9 +561,12 @@ running "make sure indexing is enabled for the main volume"
 sudo mdutil -i on / > /dev/null;ok
 
 running "allow spotlight for system files"
+FILESATTRIBUTE="com_apple_SearchSystemFilesAttribute"
+if [[ -z $(defaults read com.apple.finder SlicesRootAttributes | grep $FILESATTRIBUTE) ]]; then
 defaults write com.apple.finder SlicesRootAttributes -array-add \
-  kMDItemFSInvisible \
-  com_apple_SearchSystemFilesAttribute;ok
+  com_apple_SearchSystemFilesAttribute
+fi
+ok
 
 #running "rebuild the index from scratch"
 #sudo mdutil -E / > /dev/null;ok
