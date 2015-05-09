@@ -503,6 +503,15 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 running "add a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
 
+running "restore windows from last session"
+defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true;ok
+
+running "new windows open with empty page"
+defaults write com.apple.Safari NewWindowBehavior -int 1;ok
+
+running "new tabs open with empty page"
+defaults write com.apple.Safari NewTabBehavior -int 1;ok
+
 
 ###############################################################################
 bot "Configuring Mail"
