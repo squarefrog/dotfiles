@@ -68,14 +68,17 @@ else
   warn ".shellrc file doesn't exist :("
 fi
 
-ZSHTHEME="$DOTFILES/oh-my-zsh/custom/themes/squarefrog.zsh-theme"
-if [[ ! -e $ZSHTHEME ]]; then
-  bot "Installing awesome zsh theme..."
-  mkdir -p $DOTFILES/oh-my-zsh/custom/themes
-  ln -s $DOTFILES/themes/squarefrog.zsh-theme $ZSHTHEME
-else
-  bot "Zsh theme already linked"
-fi
+bot "Pulling in prezto"
+git submodule update --init --recursive
+
+#ZSHTHEME="$DOTFILES/oh-my-zsh/custom/themes/squarefrog.zsh-theme"
+#if [[ ! -e $ZSHTHEME ]]; then
+  #bot "Installing awesome zsh theme..."
+  #mkdir -p $DOTFILES/oh-my-zsh/custom/themes
+  #ln -s $DOTFILES/themes/squarefrog.zsh-theme $ZSHTHEME
+#else
+  #bot "Zsh theme already linked"
+#fi
 
 THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
 XCODETHEMES_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
