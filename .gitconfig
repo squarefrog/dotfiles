@@ -15,15 +15,9 @@
 	pr = pull --rebase
 	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
 	undo = reset --soft HEAD^
-  d = diff
-  dc = diff --cached
-  dt = difftool
   l = log --graph --pretty='format:%C(yellow)%h%C(red)%d%C(reset) %s %C(white) %C(cyan)%an%C(reset), %C(green)%ar%C(reset)'
 [push]
 	default = simple
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
 [diff]
 	tool = vimdiff
 [difftool]
@@ -36,6 +30,6 @@
   tool = fugitive
   log = true
 [include]
-  path = .gitconfig.local
+  path = ~/.gitconfig.local
 [credential]
 	helper = osxkeychain
