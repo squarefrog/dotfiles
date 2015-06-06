@@ -17,3 +17,6 @@ set smartcase
 " Make indenting easier
 vnoremap < <gv
 vnoremap > >gv
+
+" Toggle relative numbering
+nnoremap <C-n> :set rn!<cr>

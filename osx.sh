@@ -64,12 +64,13 @@ fi
 
 bot "Installing homebrew command-line tools"
 
+require_brew ack
 require_brew fasd
 require_brew git-flow
-require_brew gnu-sed --with-default-names
 require_brew mogenerator
 require_brew python
 require_brew reattach-to-user-namespace
+require_brew teensy_loader_cli
 require_brew tmux
 require_brew tree
 require_brew vim --override-system-vi

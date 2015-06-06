@@ -197,6 +197,19 @@ command! PrettyXML call DoPrettyXML()
 " Call format xml
 map <Leader>fx :call DoPrettyXML()<CR>
 
+" Toggle between relative line numbering and normal
+function! NumberToggle()
+  if &relativenumber
+    set number
+    set norelativenumber
+  else
+    set relativenumber
+    set nonumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local override
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
