@@ -71,6 +71,11 @@ set clipboard=unnamed
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
+" Fastlane
+au BufNewFile,BufRead Fastfile      set filetype=ruby
+au BufNewFile,BufRead Deliverfile   set filetype=ruby
+au BufNewFile,BufRead Snapfile      set filetype=ruby
+
 " XML
 let g:xml_syntax_folding=1
 "au FileType xml setlocal foldmethod=syntax
