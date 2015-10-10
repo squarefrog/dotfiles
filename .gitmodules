@@ -4,3 +4,4 @@
 [submodule "prezto"]
 	path = prezto
 	url = git@github.com:squarefrog/prezto.git
+	branch = master
