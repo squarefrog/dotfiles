@@ -13,11 +13,27 @@ function removesymlink {
   fi
 }
 
+removesymlink .zlogin
+removesymlink .zlogout
+removesymlink .zpreztorc
+removesymlink .zprofile
+removesymlink .zshenv
+removesymlink .zshrc
+
 removesymlink .aliases
 removesymlink .bashrc
+removesymlink .gemrc
+removesymlink .gitconfig
+removesymlink .gitignore_global
+removesymlink .gvimrc
 removesymlink .profile
 removesymlink .shellrc
+removesymlink .tmux.conf
+removesymlink .vimrc
+removesymlink .vimrc.bundles
+removesymlink .xvimrc
 removesymlink .zshrc
+removesymlink .zprezto
 
 echo "done"
 
