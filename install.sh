@@ -24,6 +24,9 @@ else
 	bot "Looks like you are already using zsh. woot!"
 fi
 
+bot "Pulling in prezto"
+git submodule update --init --recursive
+
 pushd ~ > /dev/null 2>&1
 
 function symlinkifne {
@@ -67,9 +70,6 @@ if [[ -f $HOME/.shellrc ]];then
 else
   warn ".shellrc file doesn't exist :("
 fi
-
-bot "Pulling in prezto"
-git submodule update --init --recursive
 
 #ZSHTHEME="$DOTFILES/oh-my-zsh/custom/themes/squarefrog.zsh-theme"
 #if [[ ! -e $ZSHTHEME ]]; then
