@@ -135,6 +135,14 @@ else
   bot "Inconsolata for Powerline-dz already installed"
 fi
 
+MESLO_LOC="$FONTS_DIR/Meslo-LGS-Powerline.otf"
+if [[ ! -e $INCONSOLATA ]]; then
+  running "installing Meslo LG S Regular for Powerline"
+  ln -s $DOTFILES/fonts/Meslo-LGS-Powerline.otf $INCONSOLATADZ_LOC;ok
+else
+  bot "Meslo LG S Regular for Powerline already installed"
+fi
+
 
 ###############################################################################
 bot "Configuring General System UI/UX..."
