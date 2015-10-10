@@ -29,41 +29,23 @@ git submodule update --init --recursive
 
 pushd ~ > /dev/null 2>&1
 
-function symlinkifne {
-    running "$1"
-
-    if [[ -e $1 ]]; then
-        # file exists
-        if [[ -L $1 ]]; then
-            # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
-            return
-        fi
-        # backup file does not exist yet
-        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
-            mv $1 ~/.dotfiles_backup/
-            echo -en 'backed up saved...';
-        fi
-    fi
-    # create the link
-    ln -s ~/git/dotfiles/$1 $1
-    echo -en 'linked';ok
-}
+bot "Creating symlinks for prezto dotfiles"
+linkpreztofile zlogin
+linkpreztofile zlogout
+linkpreztofile zpreztorc
+linkpreztofile zprofile
+linkpreztofile zshenv
+linkpreztofile zshrc
 
 bot "Creating symlinks for project dotfiles..."
-symlinkifne .aliases
-symlinkifne .bashrc
 symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore_global
 symlinkifne .gvimrc
-symlinkifne .profile
-symlinkifne .shellrc
 symlinkifne .tmux.conf
 symlinkifne .vimrc
 symlinkifne .vimrc.bundles
 symlinkifne .xvimrc
-symlinkifne .zshrc
 
 if [[ -f $HOME/.shellrc ]];then
   source "$HOME/.shellrc"
