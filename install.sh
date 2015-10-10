@@ -14,6 +14,8 @@ if [[ ! -e ~/.dotfiles_backup ]]; then
     mkdir ~/.dotfiles_backup
 fi
 
+# TODO: Export $(DOTFILES) if doesn't exist here!!
+
 bot "Hello! Let's rock!"
 
 echo $0 | grep zsh > /dev/null 2>&1 | true
@@ -25,11 +27,15 @@ else
 fi
 
 bot "Pulling in prezto"
+# check if prezto exists?
+# pull changes
+# init
 git submodule update --init --recursive
 
 pushd ~ > /dev/null 2>&1
 
 bot "Creating symlinks for prezto dotfiles"
+linkpreztofolder
 linkpreztofile zlogin
 linkpreztofile zlogout
 linkpreztofile zpreztorc
