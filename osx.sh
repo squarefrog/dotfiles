@@ -8,13 +8,7 @@
 # include library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
-bot "I need your sudo password to install defaults:"
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-bot "OK, lets roll..."
+bot "Installing OS X specific preferences. Lets roll..."
 
 
 ###############################################################################
@@ -30,6 +24,9 @@ if [[ $? != 0 ]]; then
     error "unable to install homebrew, script $0 abort!"
     exit -1
   fi
+else
+  action "updating homebrew"
+  brew update 2>&1 > /dev/null
 fi
 ok
 
@@ -39,11 +36,6 @@ if [[ $? != 0 ]]; then
   action "installing brew-cask"
   require_brew caskroom/cask/brew-cask
 fi
-ok
-
-# Make sure we are using the latest Homebrew
-running "updating homebrew"
-brew update 2>&1 > /dev/null
 ok
 
 bot "Before installing brew packages, we can upgrade any outdated packages."
@@ -109,6 +101,8 @@ bot "Installing Ruby Gems..."
 ###############################################################################
 
 require_gem cocoapods
+require_gem fastlane
+require_gem xctool
 
 
 ###############################################################################
@@ -142,6 +136,17 @@ if [[ ! -e $INCONSOLATA ]]; then
 else
   bot "Meslo LG S Regular for Powerline already installed"
 fi
+
+
+###############################################################################
+# Require sudo password to instal system preferences
+###############################################################################
+
+bot "I need your sudo password to install system preferences:"
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
 ###############################################################################
