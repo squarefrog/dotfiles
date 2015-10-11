@@ -94,7 +94,7 @@ function symlinkifne {
         fi
     fi
     # create the link
-    ln -s ~/git/dotfiles/$1 $1
+    ln -s $DOTFILES/$1 $1
     echo -en 'linked';ok
 }
 
@@ -115,7 +115,7 @@ function linkpreztofile {
         fi
     fi
     # create the link
-    ln -s ~/git/dotfiles/prezto/runcoms/$1 ".$1"
+    ln -s $DOTFILES/prezto/runcoms/$1 ".$1"
     echo -en 'linked';ok
 }
 
@@ -136,6 +136,6 @@ function linkpreztofolder {
         fi
     fi
     # create the link
-    ln -s ~/git/dotfiles/prezto .zprezto
+    ln -s $DOTFILES/prezto .zprezto
     echo -en 'linked';ok
 }
