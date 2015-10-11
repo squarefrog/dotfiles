@@ -77,3 +77,65 @@ function require_gem() {
     ok
 }
 
+function symlinkifne {
+    running "$1"
+
+    if [[ -e $1 ]]; then
+        # file exists
+        if [[ -L $1 ]]; then
+            # it's already a simlink (could have come from this project)
+            echo -en '\tsimlink exists, skipped\t';ok
+            return
+        fi
+        # backup file does not exist yet
+        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
+            mv $1 ~/.dotfiles_backup/
+            echo -en 'backed up saved...';
+        fi
+    fi
+    # create the link
+    ln -s $DOTFILES/$1 $1
+    echo -en 'linked';ok
+}
+
+function linkpreztofile {
+  running "$1"
+
+  if [[ -e ".$1" ]]; then
+        # file exists
+        if [[ -L ".$1" ]]; then
+            # it's already a simlink (could have come from this project)
+            echo -en '\tsimlink exists, skipped\t';ok
+            return
+        fi
+        # backup file does not exist yet
+        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
+            mv ".$1" ~/.dotfiles_backup/
+            echo -en 'backed up saved...';
+        fi
+    fi
+    # create the link
+    ln -s $DOTFILES/prezto/runcoms/$1 ".$1"
+    echo -en 'linked';ok
+}
+
+function linkpreztofolder {
+  running "Linking prezto folder"
+
+  if [[ -e .zprezto ]]; then
+        # file exists
+        if [[ -L .zprezto ]]; then
+            # it's already a simlink (could have come from this project)
+            echo -en '\tsimlink exists, skipped\t';ok
+            return
+        fi
+        # backup file does not exist yet
+        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
+            mv ".zprezto" ~/.dotfiles_backup/
+            echo -en 'backed up saved...';
+        fi
+    fi
+    # create the link
+    ln -s $DOTFILES/prezto .zprezto
+    echo -en 'linked';ok
+}

@@ -71,6 +71,11 @@ set clipboard=unnamed
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
+" Fastlane
+au BufNewFile,BufRead Fastfile      set filetype=ruby
+au BufNewFile,BufRead Deliverfile   set filetype=ruby
+au BufNewFile,BufRead Snapfile      set filetype=ruby
+
 " XML
 let g:xml_syntax_folding=1
 "au FileType xml setlocal foldmethod=syntax
@@ -196,6 +201,19 @@ command! PrettyXML call DoPrettyXML()
 
 " Call format xml
 map <Leader>fx :call DoPrettyXML()<CR>
+
+" Toggle between relative line numbering and normal
+function! NumberToggle()
+  if &relativenumber
+    set number
+    set norelativenumber
+  else
+    set relativenumber
+    set nonumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local override

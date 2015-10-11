@@ -24,58 +24,47 @@ else
 	bot "Looks like you are already using zsh. woot!"
 fi
 
+[ -z "$DOTFILES" ] && DOTFILES=$PWD
+if env | grep -q ^DOTFILES=
+then
+  echo env variable is already exported
+  bot "DOTFILES already exported!"
+else
+  bot "DOTFILES temporarily exported!"
+  export DOTFILES
+fi
+
+bot "Pulling in prezto"
+# check if prezto exists?
+if [[ -d $DOTFILES/prezto ]]; then
+  running "Prezto already cloned, updating..."
+  git submodule update --recursive
+else
+  running "Cloning Prezto repo..."
+  git submodule update init --recursive
+fi
+ok
+
 pushd ~ > /dev/null 2>&1
 
-function symlinkifne {
-    running "$1"
-
-    if [[ -e $1 ]]; then
-        # file exists
-        if [[ -L $1 ]]; then
-            # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
-            return
-        fi
-        # backup file does not exist yet
-        if [[ ! -e ~/.dotfiles_backup/$1 ]];then
-            mv $1 ~/.dotfiles_backup/
-            echo -en 'backed up saved...';
-        fi
-    fi
-    # create the link
-    ln -s ~/git/dotfiles/$1 $1
-    echo -en 'linked';ok
-}
+bot "Creating symlinks for prezto dotfiles"
+linkpreztofolder
+linkpreztofile zlogin
+linkpreztofile zlogout
+linkpreztofile zpreztorc
+linkpreztofile zprofile
+linkpreztofile zshenv
+linkpreztofile zshrc
 
 bot "Creating symlinks for project dotfiles..."
-symlinkifne .aliases
-symlinkifne .bashrc
 symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore_global
 symlinkifne .gvimrc
-symlinkifne .profile
-symlinkifne .shellrc
 symlinkifne .tmux.conf
 symlinkifne .vimrc
 symlinkifne .vimrc.bundles
 symlinkifne .xvimrc
-symlinkifne .zshrc
-
-if [[ -f $HOME/.shellrc ]];then
-  source "$HOME/.shellrc"
-else
-  warn ".shellrc file doesn't exist :("
-fi
-
-ZSHTHEME="$DOTFILES/oh-my-zsh/custom/themes/squarefrog.zsh-theme"
-if [[ ! -e $ZSHTHEME ]]; then
-  bot "Installing awesome zsh theme..."
-  mkdir -p $DOTFILES/oh-my-zsh/custom/themes
-  ln -s $DOTFILES/themes/squarefrog.zsh-theme $ZSHTHEME
-else
-  bot "Zsh theme already linked"
-fi
 
 THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
 XCODETHEMES_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"

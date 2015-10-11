@@ -8,13 +8,7 @@
 # include library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
-bot "I need your sudo password to install defaults:"
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-bot "OK, lets roll..."
+bot "Installing OS X specific preferences. Lets roll..."
 
 
 ###############################################################################
@@ -30,6 +24,9 @@ if [[ $? != 0 ]]; then
     error "unable to install homebrew, script $0 abort!"
     exit -1
   fi
+else
+  action "updating homebrew"
+  brew update 2>&1 > /dev/null
 fi
 ok
 
@@ -39,11 +36,6 @@ if [[ $? != 0 ]]; then
   action "installing brew-cask"
   require_brew caskroom/cask/brew-cask
 fi
-ok
-
-# Make sure we are using the latest Homebrew
-running "updating homebrew"
-brew update 2>&1 > /dev/null
 ok
 
 bot "Before installing brew packages, we can upgrade any outdated packages."
@@ -64,11 +56,13 @@ fi
 
 bot "Installing homebrew command-line tools"
 
+require_brew ack
+require_brew fasd
 require_brew git-flow
-require_brew gnu-sed --with-default-names
 require_brew mogenerator
 require_brew python
 require_brew reattach-to-user-namespace
+require_brew teensy_loader_cli
 require_brew tmux
 require_brew tree
 require_brew vim --override-system-vi
@@ -107,6 +101,8 @@ bot "Installing Ruby Gems..."
 ###############################################################################
 
 require_gem cocoapods
+require_gem fastlane
+require_gem xctool
 
 
 ###############################################################################
@@ -132,6 +128,25 @@ if [[ ! -e $INCONSOLATA ]]; then
 else
   bot "Inconsolata for Powerline-dz already installed"
 fi
+
+MESLO_LOC="$FONTS_DIR/Meslo-LGS-Powerline.otf"
+if [[ ! -e $INCONSOLATA ]]; then
+  running "installing Meslo LG S Regular for Powerline"
+  ln -s $DOTFILES/fonts/Meslo-LGS-Powerline.otf $INCONSOLATADZ_LOC;ok
+else
+  bot "Meslo LG S Regular for Powerline already installed"
+fi
+
+
+###############################################################################
+# Require sudo password to instal system preferences
+###############################################################################
+
+bot "I need your sudo password to install system preferences:"
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
 ###############################################################################
