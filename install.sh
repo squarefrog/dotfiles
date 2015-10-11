@@ -18,6 +18,18 @@ fi
 
 bot "Hello! Let's rock!"
 
+running "Checking env for $DOTFILES"
+[ -z "$DOTFILES" ] && DOTFILES=$PWD
+
+if env | grep -q ^DOTFILES=
+then
+  echo env variable is already exported
+  bot "DOTFILES already exported!"
+else
+  bot "DOTFILES temporarily exported!"
+  export DOTFILES
+fi
+
 echo $0 | grep zsh > /dev/null 2>&1 | true
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
 	running "changing your login shell to zsh"
