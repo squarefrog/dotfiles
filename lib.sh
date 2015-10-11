@@ -39,6 +39,10 @@ function error() {
     echo -e "$COL_RED[error]$COL_RESET "$1
 }
 
+function puts() {
+    echo -en "\t$1\t"
+}
+
 function require_cask() {
     running "brew cask $1"
     brew cask list $1 > /dev/null 2>&1 | true
@@ -54,11 +58,11 @@ function require_cask() {
 }
 
 function require_brew() {
-    running "brew $1 $2"
+    running "brew $1"
     brew list $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
-        action "brew install $1 $2"
-        brew install $1 $2
+        action "brew install $1"
+        brew install $1
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             exit -1
@@ -69,10 +73,9 @@ function require_brew() {
 
 function require_gem() {
     running "gem $1"
-    if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) != $1 ]];
-        then
-            action "gem install $1"
-            gem install $1
+    if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) != $1 ]]; then
+      puts "installing"
+      gem install $1
     fi
     ok
 }
@@ -84,18 +87,18 @@ function symlinkifne {
         # file exists
         if [[ -L $1 ]]; then
             # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
+            puts "exists, skipping";ok
             return
         fi
         # backup file does not exist yet
         if [[ ! -e ~/.dotfiles_backup/$1 ]];then
             mv $1 ~/.dotfiles_backup/
-            echo -en 'backed up saved...';
+            puts 'backed up saved...';
         fi
     fi
     # create the link
     ln -s $DOTFILES/$1 $1
-    echo -en 'linked';ok
+    puts "linked";ok
 }
 
 function linkpreztofile {
@@ -105,37 +108,51 @@ function linkpreztofile {
         # file exists
         if [[ -L ".$1" ]]; then
             # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
+            puts "exists, skipping";ok
             return
         fi
         # backup file does not exist yet
         if [[ ! -e ~/.dotfiles_backup/$1 ]];then
             mv ".$1" ~/.dotfiles_backup/
-            echo -en 'backed up saved...';
+            puts 'backed up saved...';
         fi
     fi
     # create the link
     ln -s $DOTFILES/prezto/runcoms/$1 ".$1"
-    echo -en 'linked';ok
+    puts 'linked';ok
 }
 
 function linkpreztofolder {
-  running "Linking prezto folder"
+  running "zprezto"
 
   if [[ -e .zprezto ]]; then
         # file exists
         if [[ -L .zprezto ]]; then
             # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
+            puts 'exists, skipping';ok
             return
         fi
         # backup file does not exist yet
         if [[ ! -e ~/.dotfiles_backup/$1 ]];then
             mv ".zprezto" ~/.dotfiles_backup/
-            echo -en 'backed up saved...';
+            puts 'backed up saved...';
         fi
     fi
     # create the link
     ln -s $DOTFILES/prezto .zprezto
-    echo -en 'linked';ok
+    puts 'linked';ok
+}
+
+function installfont {
+  running "$1"
+  FONTS_DIR="$HOME/Library/Fonts"
+  FONT_LOC="$FONTS_DIR/$1"
+  if [[ ! -e $FONT_LOC ]]; then
+    puts "installing"
+    if [[ ! -d "$FONTS_DIR" ]]; then
+      mkdir -p $FONTS_DIR
+    fi
+    ln -s $DOTFILES/fonts/$1 $FONT_LOC
+  fi
+  ok
 }

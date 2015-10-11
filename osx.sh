@@ -15,26 +15,29 @@ bot "Installing OS X specific preferences. Lets roll..."
 # Install homebrew
 ###############################################################################
 
-running "checking homebrew install"
+bot "Homebrew"
+running "homebrew"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
-  action "installing homebrew"
+  puts "installing"
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   if [[ $? != 0 ]]; then
     error "unable to install homebrew, script $0 abort!"
     exit -1
   fi
 else
-  action "updating homebrew"
+  puts "updating"
   brew update 2>&1 > /dev/null
 fi
 ok
 
-running "checking brew-cask install"
+running "brew-cask"
 output=$(brew tap | grep cask)
 if [[ $? != 0 ]]; then
-  action "installing brew-cask"
+  puts "installing"
   require_brew caskroom/cask/brew-cask
+else
+  puts "exists, skipping"
 fi
 ok
 
@@ -42,9 +45,9 @@ bot "Before installing brew packages, we can upgrade any outdated packages."
 read -r -p "run brew upgrade? [y|N] " response
 if [[ $response =~ ^(y|yes|Y) ]];then
   # Upgrade any already-installed formulae
-  action "upgrade brew packages..."
+  running "upgrade brew packages..."
   brew upgrade -all
-  ok "brews updated..."
+  ok
 else
   ok "skipped brew package upgrades.";
 fi
@@ -53,8 +56,6 @@ fi
 ###############################################################################
 # Native Apps (via brew cask)
 ###############################################################################
-
-bot "Installing homebrew command-line tools"
 
 require_brew ack
 require_brew fasd
@@ -90,10 +91,10 @@ require_brew xctool
 #require_cask teensy
 #require_cask vlc
 
-bot "Alright, cleaning up homebrew cache..."
+running "cleaning up homebrew cache"
 # Remove outdated versions from the cellar
 brew cleanup > /dev/null 2>&1
-bot "All clean"
+ok
 
 
 ###############################################################################
@@ -102,40 +103,20 @@ bot "Installing Ruby Gems..."
 
 require_gem cocoapods
 require_gem fastlane
-require_gem xctool
+require_gem xcpretty
+
+running "gem cleanup"
+gem cleanup
+ok
 
 
 ###############################################################################
 bot "Installing Fonts..."
 ###############################################################################
 
-FONTS_DIR="$HOME/Library/Fonts"
-INCONSOLATA_LOC="$FONTS_DIR/Inconsolata-Powerline.otf"
-if [[ ! -e $INCONSOLATA ]]; then
-  running "installing Inconsolata for Powerline"
-  if [[ ! -d "$FONTS_DIR" ]]; then
-    mkdir -p $FONTS_DIR
-  fi
-  ln -s $DOTFILES/fonts/Inconsolata-Powerline.otf $INCONSOLATA_LOC;ok
-else
-  bot "Inconsolata for Powerline already installed"
-fi
-
-INCONSOLATADZ_LOC="$FONTS_DIR/Inconsolata-dz-Powerline.otf"
-if [[ ! -e $INCONSOLATA ]]; then
-  running "installing Inconsolata-dz for Powerline"
-  ln -s $DOTFILES/fonts/Inconsolata-dz-Powerline.otf $INCONSOLATADZ_LOC;ok
-else
-  bot "Inconsolata for Powerline-dz already installed"
-fi
-
-MESLO_LOC="$FONTS_DIR/Meslo-LGS-Powerline.otf"
-if [[ ! -e $INCONSOLATA ]]; then
-  running "installing Meslo LG S Regular for Powerline"
-  ln -s $DOTFILES/fonts/Meslo-LGS-Powerline.otf $INCONSOLATADZ_LOC;ok
-else
-  bot "Meslo LG S Regular for Powerline already installed"
-fi
+installfont 'Inconsolata-Powerline.otf'
+installfont 'Inconsolata-dz-Powerline.otf'
+installfont 'Meslo-LGS-Powerline.otf'
 
 
 ###############################################################################
@@ -229,15 +210,16 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist Automati
 running "automatically download updates in the background"
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticDownload -bool YES;ok
 
-running "automatically install purchases from other computers"
+#running "automatically install purchases from other computers"
 #sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist ConfigDataInstall -bool YES;ok
 
 running "automatically install critical updates"
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist CriticalUpdateInstall -bool YES;ok
 
 running "don't automatically restart after updates"
-sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdateRestartRequired -bool YES;ok
-sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdateRestartRequired -bool NO;ok
+sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdateRestartRequired -bool YES
+sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdateRestartRequired -bool NO
+ok
 
 running "automatically update apps"
 sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bool YES;ok
@@ -405,7 +387,7 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true;ok
 running "show the ~/Library folder"
 chflags nohidden ~/Library;ok
 
-running "expand the following File Info panes: “General”, “Open with”, and “Sharing & Permissions”"
+running "expand File Info panes: “General”, “Open with”, and “Sharing & Permissions”"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
   General -bool true \
   OpenWith -bool true \
@@ -608,8 +590,6 @@ if [[ -z $(defaults read com.apple.Terminal "Window Settings" | grep Tomorrow) ]
   open "${DOTFILES}/themes/TomorrowNight.terminal"
   sleep 1 # Wait a bit to make sure the theme is loaded
 fi
-ok
-
 defaults write com.apple.terminal "Default Window Settings" -string "TomorrowNight"
 defaults write com.apple.terminal "Startup Window Settings" -string "TomorrowNight";ok
 

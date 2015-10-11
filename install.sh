@@ -9,38 +9,44 @@
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
+bot "Lets get ready to rumble!"
+bot "Preparing..."
+
 # make a backup directory for overwritten dotfiles
 if [[ ! -e ~/.dotfiles_backup ]]; then
+    running "creating ~/.dotfiles_backup folder"
     mkdir ~/.dotfiles_backup
+    ok
 fi
-
-bot "Hello! Let's rock!"
 
 echo $0 | grep zsh > /dev/null 2>&1 | true
+running "zsh"
 if [[ ${PIPESTATUS[0]} != 0 ]]; then
-	running "changing your login shell to zsh"
-	chsh -s $(which zsh);ok
+  puts "setting login shell"
+	chsh -s $(which zsh);
 else
-	bot "Looks like you are already using zsh. woot!"
+  puts "already set"
 fi
+ok
 
+running "dotfiles"
 [ -z "$DOTFILES" ] && DOTFILES=$PWD
 if env | grep -q ^DOTFILES=
 then
-  echo env variable is already exported
-  bot "DOTFILES already exported!"
+  puts "already exported"
 else
-  bot "DOTFILES temporarily exported!"
   export DOTFILES
+  puts "exported"
 fi
+ok
 
-bot "Pulling in prezto"
+running "prezto"
 # check if prezto exists?
 if [[ -d $DOTFILES/prezto ]]; then
-  running "Prezto already cloned, updating..."
+  puts "updating"
   git submodule update --recursive
 else
-  running "Cloning Prezto repo..."
+  puts "cloning"
   git submodule update init --recursive
 fi
 ok
@@ -56,7 +62,7 @@ linkpreztofile zprofile
 linkpreztofile zshenv
 linkpreztofile zshrc
 
-bot "Creating symlinks for project dotfiles..."
+bot "Creating symlinks for project dotfiles"
 symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore_global
@@ -66,39 +72,43 @@ symlinkifne .vimrc
 symlinkifne .vimrc.bundles
 symlinkifne .xvimrc
 
-THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
-XCODETHEMES_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
-if [[ ! -e "$XCODETHEMES_DIR/$THEME_NAME" ]]; then
-  bot "Installing Tomorrow Night Xcode theme..."
-  if [[ ! -d "$XCODETHEMES_DIR" ]]; then
-    mkdir -p $XCODETHEMES_DIR
-  fi
-  ln -s "$DOTFILES/themes/$THEME_NAME" "$XCODETHEMES_DIR/$THEME_NAME"
-else
-  bot "Xcode theme already installed"
-fi
-
 if [[ -d "$HOME/.vim/bundle/neobundle.vim" ]]; then
-  bot "Updating vim packages..."
-  cd $HOME/.vim/bundle/neobundle.vim
+  bot "Updating vim packages"
+  pushd $HOME/.vim/bundle/neobundle.vim > /dev/null 2>&1
   git pull origin master > /dev/null 2>&1
-  cd $DOTFILES
-  vim -c "NeoBundleInstall!" -c "qa!"
+  popd > /dev/null 2>&1
 else
-  bot "Installing neobundle.vim..."
+  bot "Installing neobundle.vim"
   if [ ! -d "$HOME/.vim/bundle" ]; then
     mkdir -p $HOME/.vim/bundle
   fi
   git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim > /dev/null 2>&1
-  vim -c "NeoBundleInstall!" -c "qa!"
+fi
+vim -c "NeoBundleInstall!" -c "qa!"
+
+bot "Setting up Xcode"
+running "Tomorrow Night"
+THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
+XCODETHEMES_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+if [[ ! -e "$XCODETHEMES_DIR/$THEME_NAME" ]]; then
+  puts "installing theme"
+  if [[ ! -d "$XCODETHEMES_DIR" ]]; then
+    mkdir -p $XCODETHEMES_DIR
+  fi
+  ln -s "$DOTFILES/themes/$THEME_NAME" "$XCODETHEMES_DIR/$THEME_NAME"
+  ok
+else
+  puts "exists, skipping";ok
 fi
 
+running "Alcatraz"
 PLUGIN_PATH="${HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin"
 if [[ ! -d $PLUGIN_PATH ]]; then
-  bot "Installing Alcatraz..."
+  puts "installing"
   curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/master/Scripts/install.sh | sh > /dev/null 2>&1
+  ok
 else
-  bot "Alcatraz already installed"
+  puts "exists, skipping";ok
 fi
 
 popd > /dev/null 2>&1
