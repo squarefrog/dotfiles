@@ -44,11 +44,10 @@ running "prezto"
 # check if prezto exists?
 if [[ -d $DOTFILES/prezto ]]; then
   puts "updating"
-  git submodule update --recursive
 else
   puts "cloning"
-  git submodule update init --recursive
 fi
+git submodule update --init --recursive
 ok
 
 pushd ~ > /dev/null 2>&1
