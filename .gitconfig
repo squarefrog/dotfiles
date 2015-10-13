@@ -17,7 +17,7 @@
 	undo = reset --soft HEAD^
   l = log --graph --pretty='format:%C(yellow)%h%C(red)%d%C(reset) %s %C(white) %C(cyan)%an%C(reset), %C(green)%ar%C(reset)'
 [push]
-	default = simple
+	default = current
 [diff]
 	tool = vimdiff
 [difftool]
