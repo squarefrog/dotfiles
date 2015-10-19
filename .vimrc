@@ -72,8 +72,9 @@ set clipboard=unnamed
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
 " Fastlane
-au BufNewFile,BufRead Fastfile      set filetype=ruby
+au BufNewFile,BufRead Appfile       set filetype=ruby
 au BufNewFile,BufRead Deliverfile   set filetype=ruby
+au BufNewFile,BufRead Fastfile      set filetype=ruby
 au BufNewFile,BufRead Snapfile      set filetype=ruby
 
 " XML
