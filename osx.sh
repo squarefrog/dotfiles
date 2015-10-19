@@ -27,7 +27,7 @@ if [[ $? != 0 ]]; then
   fi
 else
   puts "updating"
-  brew update 2>&1 > /dev/null
+  brew update > /dev/null 2>&1
 fi
 ok
 
@@ -37,7 +37,8 @@ if [[ $? != 0 ]]; then
   puts "installing"
   require_brew caskroom/cask/brew-cask
 else
-  puts "exists, skipping"
+  puts "updating"
+  brew upgrade brew-cask > /dev/null 2>&1
 fi
 ok
 
@@ -82,7 +83,7 @@ require_brew xctool
 #require_cask arduino
 #require_cask dropbox
 #require_cask flux
-#require_cask gitx-rowanj
+#require_cask rowanj-gitx
 #require_cask google-chrome
 #require_cask iterm2
 #require_cask macvim
@@ -94,6 +95,7 @@ require_brew xctool
 running "cleaning up homebrew cache"
 # Remove outdated versions from the cellar
 brew cleanup > /dev/null 2>&1
+brew cask cleanup > /dev/null 2>&1
 ok
 
 
