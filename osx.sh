@@ -604,6 +604,11 @@ ok
 running "don’t display the annoying prompt when quitting iTerm"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false;ok
 
+running "set Meslo LG S 13 for iTerm"
+/usr/libexec/PlistBuddy -c 'Set :"New Bookmarks":0:"Normal Font" MesloLGS-RegularForPowerline 13' ~/Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c 'Set :"New Bookmarks":0:"Non Ascii Font" MesloLGS-RegularForPowerline 13' ~/Library/Preferences/com.googlecode.iterm2.plist
+ok
+
 
 ###############################################################################
 bot "Configuring Xcode"
