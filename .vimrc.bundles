@@ -36,7 +36,6 @@ NeoBundle "elzr/vim-json"
   set foldmethod=syntax
 
 NeoBundle "scrooloose/nerdtree"
-  "let NERDTreeShowHidden=1
   nmap gt :NERDTreeToggle<CR>
 
 
@@ -60,11 +59,6 @@ NeoBundle "tpope/vim-fugitive"
   map <leader>gc :Gcommit<CR>
   map <leader>gp :Git push<CR>
   map <leader>gw :Gwrite<CR>
-
-
-NeoBundle "tpope/vim-rails"
-  "let g:rubycomplete_buffer_loading = 1
-  "let g:rubycomplete_rails = 1
 
 
 if filereadable(expand("~/.vimrc.bundles.local"))
