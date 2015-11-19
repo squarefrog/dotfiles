@@ -2,4 +2,4 @@
 	path = prezto
 	url = git@github.com:squarefrog/prezto.git
 	branch = master
-  ignore = dirty
+  ignore = all
