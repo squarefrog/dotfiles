@@ -30,6 +30,9 @@ NeoBundleLazy "kchmck/vim-coffee-script", { 'autoload' : { 'filetypes' : ['coffe
 NeoBundleLazy "jplaut/vim-arduino-ino", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
 NeoBundleLazy "sudar/vim-arduino-syntax", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
 
+" Textile
+NeoBundleLazy "amiorin/vim-textile", { 'autoload' : { 'filetypes' : ['textile'] }}
+
 
 NeoBundle "elzr/vim-json"
   let g:vim_json_syntax_conceal = 0
