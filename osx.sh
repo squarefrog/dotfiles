@@ -8,7 +8,71 @@
 # include library helpers for colorized echo and require_brew, etc
 source ./lib.sh
 
+# Set default shell to zsh
+echo $0 | grep zsh > /dev/null 2>&1 | true
+running "zsh"
+if [[ ${PIPESTATUS[0]} != 0 ]]; then
+  puts "setting login shell"
+	chsh -s $(which zsh);
+else
+  puts "already set"
+fi
+ok
+
+running "prezto"
+# check if prezto exists?
+if [[ -d $DOTFILES/prezto ]]; then
+  puts "updating"
+else
+  puts "cloning"
+fi
+git submodule update --init --recursive
+ok
+
+pushd ~ > /dev/null 2>&1
+
+bot "Creating symlinks for prezto dotfiles"
+linkpreztofolder
+linkpreztofile zlogin
+linkpreztofile zlogout
+linkpreztofile zpreztorc
+linkpreztofile zprofile
+linkpreztofile zshenv
+linkpreztofile zshrc
+
+popd > /dev/null 2>&1
+
 bot "Installing OS X specific preferences. Lets roll..."
+
+
+###############################################################################
+# Setup Xcode
+###############################################################################
+
+bot "Setting up Xcode"
+running "Tomorrow Night"
+THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
+XCODETHEMES_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+if [[ ! -e "$XCODETHEMES_DIR/$THEME_NAME" ]]; then
+  puts "installing theme"
+  if [[ ! -d "$XCODETHEMES_DIR" ]]; then
+    mkdir -p $XCODETHEMES_DIR
+  fi
+  ln -s "$DOTFILES/themes/$THEME_NAME" "$XCODETHEMES_DIR/$THEME_NAME"
+  ok
+else
+  puts "exists, skipping";ok
+fi
+
+running "Alcatraz"
+PLUGIN_PATH="${HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin"
+if [[ ! -d $PLUGIN_PATH ]]; then
+  puts "installing"
+  curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/master/Scripts/install.sh | sh > /dev/null 2>&1
+  ok
+else
+  puts "exists, skipping";ok
+fi
 
 
 ###############################################################################
