@@ -1,3 +1,5 @@
+" set debug
+
 imap jj <Esc>
 
 " Easy window navigation
