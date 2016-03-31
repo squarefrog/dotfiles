@@ -8,10 +8,8 @@ NeoBundle "ddollar/nerdcommenter"
 NeoBundle "ervandew/supertab"
 NeoBundle "tpope/vim-surround"
 NeoBundle "tpope/vim-unimpaired"
-NeoBundle "kien/ctrlp.vim"
 NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "squarefrog/tomorrow-night.vim"
-NeoBundle 'darfink/vim-plist'
 
 
 " Ruby
@@ -34,24 +32,8 @@ NeoBundleLazy "sudar/vim-arduino-syntax", { 'autoload' : { 'filetypes' : ['ino',
 NeoBundleLazy "amiorin/vim-textile", { 'autoload' : { 'filetypes' : ['textile'] }}
 
 
-NeoBundle "elzr/vim-json"
-  let g:vim_json_syntax_conceal = 0
-  set foldmethod=syntax
-
 NeoBundle "scrooloose/nerdtree"
   nmap gt :NERDTreeToggle<CR>
-
-
-NeoBundle "bling/vim-airline"
-  let g:airline_theme = 'tomorrow'
-  let g:airline#extensions#branch#enabled = 1
-  let g:airline#extensions#syntastic#enabled = 1
-  let g:airline_powerline_fonts = 1
-  set encoding=utf-8
-  set laststatus=2 " Force airline to show all the time
-  set nocompatible " Disable vi-compatibility
-  set t_Co=256 " Set colours for vim-airline
-  set ttimeoutlen=50
 
 
 NeoBundle "tpope/vim-fugitive"
@@ -63,6 +45,27 @@ NeoBundle "tpope/vim-fugitive"
   map <leader>gp :Git push<CR>
   map <leader>gw :Gwrite<CR>
 
+
+" The following bundles will only be installed on OS X
+if (system('uname') =~ "Darwin")
+
+NeoBundle 'darfink/vim-plist'
+NeoBundle "kien/ctrlp.vim"
+NeoBundle "elzr/vim-json"
+  let g:vim_json_syntax_conceal = 0
+  set foldmethod=syntax
+NeoBundle "bling/vim-airline"
+  let g:airline_theme = 'tomorrow'
+  let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#syntastic#enabled = 1
+  let g:airline_powerline_fonts = 1
+  set encoding=utf-8
+  set laststatus=2 " Force airline to show all the time
+  set nocompatible " Disable vi-compatibility
+  set t_Co=256 " Set colours for vim-airline
+  set ttimeoutlen=50
+
+endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

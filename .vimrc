@@ -223,3 +223,4 @@ nnoremap <C-n> :call NumberToggle()<cr>
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
