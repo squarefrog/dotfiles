@@ -37,6 +37,7 @@ bot "Creating symlinks for project dotfiles"
 symlinkifne .gemrc
 symlinkifne .gitconfig
 symlinkifne .gitignore_global
+symlinkifne .gitattributes_global
 symlinkifne .gvimrc
 symlinkifne .tmux.conf
 symlinkifne .vimrc
