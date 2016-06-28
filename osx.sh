@@ -524,7 +524,7 @@ defaults write com.apple.dock wvous-bl-modifier -int 0;ok
 
 running "bottom right screen corner → Sleep Display"
 defaults write com.apple.dock wvous-br-corner -int 10
-defaults write com.apple.dock wvous-br-modifier -int 0;ok
+defaults write com.apple.dock wvous-br-modifier -int 1048576;ok # hold cmd
 
 
 ###############################################################################
