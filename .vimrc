@@ -111,7 +111,7 @@ cmap Q q
 map <Leader>I gg=G``<cr>
 
 " Clean up trailing whitespace
-map <Leader>c :%s/\s\+$<cr>
+map <Leader>cw :%s/\s\+$<cr>
 
 " Make indenting easier
 vnoremap < <gv
