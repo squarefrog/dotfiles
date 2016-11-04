@@ -66,7 +66,7 @@ set mouse=a              " Allow mouse scrolling even when in tmux
 set clipboard=unnamed
 
 " Highlight trailing whitespace - disabled for now as list breaks linebreak
-"set list listchars=tab:\ \ ,trail:·
+set list listchars=tab:\ \ ,trail:·
 
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
