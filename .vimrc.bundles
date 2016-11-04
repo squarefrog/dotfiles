@@ -11,6 +11,7 @@ NeoBundle "tpope/vim-unimpaired"
 NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "squarefrog/tomorrow-night.vim"
 NeoBundle "vim-airline/vim-airline-themes"
+NeoBundle "stevearc/vim-arduino"
 
 
 " Ruby
