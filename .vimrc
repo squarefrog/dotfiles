@@ -216,6 +216,17 @@ endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
+
+" Format JSON output from Xcode console
+function! FormatXcodeJSON()
+  execute '%s/\"/"/'
+  execute '%s/\\//'
+  execute 'setf json'
+  call FormatJSON()
+endfunction
+
+map <Leader>xj :call FormatXcodeJSON()<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local override
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
