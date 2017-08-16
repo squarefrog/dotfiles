@@ -1,6 +1,6 @@
 # ls
-alias la="ls -al"
-alias ll="ls -al"
+alias la="ls -ahl"
+alias dotfiles="cd $DOTFILES"
 
 # git
 alias gs="git status"
@@ -8,7 +8,7 @@ alias gaa="git add --all"
 alias gap="git add -p"
 alias gd="git diff"
 alias gdc="git diff --cached"
-alias gc="git commit"
+alias gc="git commit -v"
 
 # git flow
 alias gffs='git flow feature start'
