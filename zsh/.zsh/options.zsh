@@ -2,7 +2,7 @@
 setopt globdots
 
 # Change directory by simply typing the name
-setopt autocdo
+setopt autocd
 
 # Correct spelling mistakes. Comment out to disable.
 setopt correct
