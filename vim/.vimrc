@@ -15,7 +15,7 @@ endif
 call neobundle#end()
 filetype plugin indent on
 syntax on
-silent! colorscheme Tomorrow-Night   " Set color scheme
+silent! colorscheme tomorrow-night   " Set color scheme
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GENERAL CONFIG

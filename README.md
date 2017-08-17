@@ -16,7 +16,7 @@ Optionally, use the `cask` script to download common applications, and the `macO
 
 ### Ubuntu
 
-    $ sudo ./ubuntu/ubuntu
+    $ sudo ./ubuntu
 
 ## Set your Git user:
 
