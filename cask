@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+brew_path=$(which brew)
+if [ -x "$brew_path" ] ; then
+  echo "Install/Updating Homebrew Packages"
+  echo
+
+  brew tap caskroom/cask
+  brew install brew-cask
+
+  function installcask() {
+    brew cask install "${@}"
+  }
+
+  installcask alfred
+  installcask appcleaner
+  installcask bettertouchtool
+  installcask dropbox
+  installcask rowanj-gitx
+  installcask google-chrome
+  installcask iterm2
+  installcask slack
+  installcask spotify
+  installcask teamviewer
+else
+  echo "Homebrew not installed. Run ~/dotfiles/brew first."
+fi
