@@ -1,60 +1,38 @@
-# dotfiles
+# Dotfiles
 
-This repository is a collection of my own personal dotfiles, for setting a new machine up exactly how I like it. Over the years it became more and more annoying to set a new machine up so why not automate the process?
+## Clone the reponsitory
 
-Roughly, the `install.sh` script achieves the following:
+    $ git clone --recursive https://github.com/squarefrog/dotfiles.git ~/dotfiles
 
-- Change shell to ZSH
-- Create symlinks to the various dotfiles, backing up old files if they already exist
-- Install my zsh theme
-- Run `NeoBundleInstall` to install vim packages
-- Install [Alcatraz](https://github.com/supermarin/Alcatraz) for Xcode
-- Install [Homebrew](http://brew.sh/) with [Cask](http://caskroom.io/) support
-- Install brews
-- Install [CocoaPods](https://cocoapods.org/) [Ruby gem](https://rubygems.org/)
-- Install [Powerline fonts](https://github.com/powerline/fonts/)
-- Write a bunch of OS X preference settings
+## Install dependencies
+### macOS
 
-## Installation
+    $ mac/brew
 
-Ensure you have installed at least the [command line developer tools](https://developer.apple.com/downloads/index.action). Ideally, you should have Xcode installed.
+Optionally, use the `cask` script to download common applications, and the `macOS` script to set sane preferences.
 
-You are free to clone the repository anywhere you wish.
+    $ mac/cask
+    $ mac/macOS
 
-```bash
-$ git clone --recursive https://github.com/squarefrog/dotfiles.git
-$ cd dotfiles
-$ ./install.sh
-```
+### Ubuntu
 
-## Adding custom settings
+    $ sudo ubuntu/ubuntu
 
-You may add your own customisations by appending the dotfile name with `.local`.
+## Install
 
-* `~/.aliases.local`
-* `~/.gitconfig.local`
-* `~/.gitconfig_global.local`
-* `~/.gvimrc.local`
-* `~/.profile.local`
-* `~/.shellrc.local`
-* `~/.tmux.conf.local`
-* `~/.vimrc.local`
-* `~/.vimrc.bundles.local`
-* `~/.zshrc.local`
+Run the install script which uses `stow` to create symbolic links to the root of your home folder
 
-As an example, your `~/.gitconfig.local` file might look like this:
+    $ ./install
 
-```
-[user]
-  name = Frank Ozwald
-  email = frank.oz@example.com
-```
+## Set your Git user:
 
-## Resources
-My setup was cherry picked from several other dotfile repositories.
-* [dotfiles.github.io](http://dotfiles.github.io/)
-* [atomantic](https://github.com/atomantic/dotfiles)
-* [Ted Kulp](https://github.com/tedkulp/vim-config)
-* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles/)
-* [Keithbsmiley](https://github.com/Keithbsmiley/dotfiles)
-* [thoughtbot](https://github.com/thoughtbot/dotfiles)
+    $ cp ~/dotfiles/git/.gitconfig.local.example ~/.gitconfig.local
+    $ vim ~/.gitconfig.local
+
+## Set shell to zsh
+
+    $ chsh -s $(which zsh)
+
+## Finally...
+
+Restart your device.

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+stow gem
+stow git --ignore=example
+stow tmux
+stow vim
+stow zsh
+
+if [[ -d "$HOME/.vim/bundle/neobundle.vim" ]]; then
+  echo "Updating vim packages"
+  pushd $HOME/.vim/bundle/neobundle.vim > /dev/null 2>&1
+  git pull origin master > /dev/null 2>&1
+  popd > /dev/null 2>&1
+else
+  echo "Installing neobundle.vim"
+  if [ ! -d "$HOME/.vim/bundle" ]; then
+    mkdir -p $HOME/.vim/bundle
+  fi
+  git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim > /dev/null 2>&1
+fi
+vim -c "NeoBundleInstall!" -c "qa!"
+

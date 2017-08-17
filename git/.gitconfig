@@ -2,21 +2,18 @@
 	excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
 	attributesfile = ~/.gitattributes_global
-[user]
-  name = Paul Williamson
-  email = squarefrog@gmail.com
 [color]
 	ui = auto
-  branch = auto
-  diff = auto
-  interactive = auto
-  pager = true
-  status = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	pager = true
+	status = auto
 [alias]
 	pr = pull --rebase
 	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
 	undo = reset --soft HEAD^
-  l = log --graph --pretty='format:%C(yellow)%h%C(red)%d%C(reset) %s %C(white) %C(cyan)%an%C(reset), %C(green)%ar%C(reset)'
+	l = log --graph --pretty='format:%C(yellow)%h%C(red)%d%C(reset) %s %C(white) %C(cyan)%an%C(reset), %C(green)%ar%C(reset)'
 [push]
 	default = current
 [diff]
@@ -24,19 +21,20 @@
 [difftool]
 	prompt = false
 [diff "localizablestrings"]
-  textconv = "iconv -f utf-16 -t utf-8"
+	textconv = "iconv -f utf-16 -t utf-8"
 [mergetool "fugitive"]
-    cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [mergetool]
-    prompt = false
+	prompt = false
 [merge]
-  tool = fugitive
-  log = true
+	tool = fugitive
+	log = true
 [include]
-  path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 [credential]
 	helper = osxkeychain
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
