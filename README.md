@@ -7,27 +7,27 @@
 ## Install dependencies
 ### macOS
 
-    $ mac/brew
+    $ ./mac/brew
 
 Optionally, use the `cask` script to download common applications, and the `macOS` script to set sane preferences.
 
-    $ mac/cask
-    $ mac/macOS
+    $ ./mac/cask
+    $ ./mac/macOS
 
 ### Ubuntu
 
-    $ sudo ubuntu/ubuntu
+    $ sudo ./ubuntu/ubuntu
+
+## Set your Git user:
+
+    $ cp ~/dotfiles/git/.gitconfig.local.example ~/.gitconfig.local
+    $ vim ~/.gitconfig.local
 
 ## Install
 
 Run the install script which uses `stow` to create symbolic links to the root of your home folder
 
     $ ./install
-
-## Set your Git user:
-
-    $ cp ~/dotfiles/git/.gitconfig.local.example ~/.gitconfig.local
-    $ vim ~/.gitconfig.local
 
 ## Set shell to zsh
 
