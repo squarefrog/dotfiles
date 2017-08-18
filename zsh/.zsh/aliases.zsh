@@ -1,6 +1,5 @@
 # ls
 alias la="ls -ahl"
-alias dotfiles="cd $DOTFILES"
 
 # git
 alias gs="git status"
@@ -26,3 +25,7 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 
 # Force tmux to use 256 colours
 alias tmux='tmux -2'
+
+# Easy recursion
+alias ...="cd ../.."
+alias ....="cd ../../.."
