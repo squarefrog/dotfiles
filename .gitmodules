@@ -3,4 +3,5 @@
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
 [submodule "zsh/.zsh/plugins/pure"]
 	path = zsh/.zsh/plugins/pure
-	url = https://github.com/sindresorhus/pure.git
+	url = https://github.com/squarefrog/pure.git
+	branch = squarefrog
