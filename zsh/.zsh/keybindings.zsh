@@ -1,6 +1,4 @@
-#bindkey '^[[A' history-substring-search-up
-#bindkey '^[[B' history-substring-search-down
-
-# Ubuntu didn't like the previous
-bindkey '\eOA' history-substring-search-up # or ^[OA
-bindkey '\eOB' history-substring-search-down # or ^[OB
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
