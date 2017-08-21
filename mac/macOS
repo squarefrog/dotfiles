@@ -845,13 +845,13 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 FONTS_DIR="$HOME/Library/Fonts"
 FONT_NAME="Meslo-LGS-Powerline.otf"
-FONT_LOC="~/dotfiles/fonts/$FONT_NAME"
+FONT_LOC="$HOME/dotfiles/fonts/$FONT_NAME"
 FONT_DST="$FONTS_DIR/$FONT_NAME"
-if [[ ! -e $FONT_DST ]]; then
+if [[ ! -f $FONT_DST ]]; then
   if [[ ! -d "$FONTS_DIR" ]]; then
     mkdir -p $FONTS_DIR
   fi
-  ln -s $FONT_LOC $FONT_DST
+  cp $FONT_LOC $FONT_DST
 fi
 
 ###############################################################################
