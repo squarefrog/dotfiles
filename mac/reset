@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Reset some previously set values
+defaults delete com.apple.universalaccess reduceTransparency
+defaults delete com.apple.dock expose-group-by-app
+defaults delete com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled
+defaults delete com.apple.Safari ShowFavoritesBar
+defaults delete NSGlobalDomain AppleShowAllExtensions
+defaults delete com.apple.finder _FXSortFoldersFirst
