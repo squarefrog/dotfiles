@@ -29,3 +29,6 @@ alias tmux='tmux -2'
 # Easy recursion
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+# Update ALL the things
+alias update='sudo softwareupdate -ia; brew update; brew upgrade; brew cleanup; gem update;'
