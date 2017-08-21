@@ -11,7 +11,7 @@ set guioptions-=r         " Remove right scrollbar
 set guioptions-=L         " Remove left scrollbar
 
 " Set font to patched powerline font
-set guifont=Inconsolata\ for\ Powerline:h16
+set guifont=Meslo\ LG\ S\ for\ Powerline
 
 " Have the mouse enabled all the time
 set mouse=a

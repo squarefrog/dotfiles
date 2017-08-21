@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Add fasd source
+if ! grep -q "^deb.*aacebedo/fasd" /etc/apt/sources.list.d/*; then
+  add-apt-repository ppa:aacebedo/fasd
+fi
+
+apt-get update
+apt-get upgrade
+
+apt-get install fasd
+apt-get install stow
+apt-get install tmux
+apt-get install tree
+apt-get install zsh

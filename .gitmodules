@@ -1,5 +1,7 @@
-[submodule "prezto"]
-	path = prezto
-	url = git@github.com:squarefrog/prezto.git
-	branch = master
-  ignore = all
+[submodule "zsh/.zsh/plugins/zsh-history-substring-search"]
+	path = zsh/.zsh/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "zsh/.zsh/plugins/pure"]
+	path = zsh/.zsh/plugins/pure
+	url = https://github.com/squarefrog/pure.git
+	branch = squarefrog

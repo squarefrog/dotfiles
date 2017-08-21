@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+brew_path=$(which brew)
+if [ -x "$brew_path" ] ; then
+  echo "Install Homebrew Packages"
+  echo
+else
+  echo "Installing homebrew"
+  echo
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  if [ $? -ne 0 ]; then
+    echo "Error installing homebrew. Bailing..."
+    echo
+    exit 1;
+  else
+    brew doctor
+    if [ $? -ne 0 ]; then
+      echo "Brew Doctor is not happy. Bailing..."
+      echo
+      exit 1;
+    fi
+  fi
+fi
+
+# Update brew if needed
+brew update
+brew upgrade
+
+# Install brews
+brew install fasd
+brew install macvim --with-override-system-vim
+brew install reattach-to-user-namespace
+brew install stow
+brew install tmux
+brew install tree
+
+# Cleanup old brews
+brew cleanup
