@@ -820,7 +820,14 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 #defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
-# Fonts
+# Preview                                                                     #
+###############################################################################
+
+# Show PDFs as two page by default
+defaults write com.apple.Preview kPVPDFDefaultPageViewModeOption -int 2
+
+###############################################################################
+# Fonts                                                                       #
 ###############################################################################
 
 FONTS_DIR="$HOME/Library/Fonts"
