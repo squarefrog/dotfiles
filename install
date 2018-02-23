@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
 echo "Linking dotfiles."
-stow gem
-stow git --ignore=example
-stow tmux
-stow vim
-stow zsh
+for folder in gem git tmux vim zsh; do
+  stow --target=$HOME --ignore=example $folder
+done
 
 if [[ -d "$HOME/.vim/bundle/neobundle.vim" ]]; then
   echo "Updating vim packages"
