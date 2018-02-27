@@ -13,15 +13,9 @@ if [ -x "$brew_path" ] ; then
   }
 
   installcask alfred
-  installcask appcleaner
-  installcask bettertouchtool
   installcask dropbox
-  installcask rowanj-gitx
-  installcask google-chrome
   installcask iterm2
-  installcask slack
   installcask spotify
-  installcask teamviewer
 else
   echo "Homebrew not installed. Run ~/dotfiles/brew first."
 fi
