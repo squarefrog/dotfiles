@@ -489,8 +489,9 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 # Allow hitting the Backspace key to go to the previous page in history
 #defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
 
-# Hide Safari’s bookmarks bar by default
-#defaults write com.apple.Safari ShowFavoritesBar -bool false
+# Show Safari’s bookmarks bar by default
+defaults write com.apple.Safari ShowFavoritesBar -bool true
+defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true
 
 # Hide Safari’s sidebar in Top Sites
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false
@@ -562,6 +563,9 @@ defaults write com.apple.Safari NewWindowBehavior -int 1
 
 # New tabs open with empty page
 defaults write com.apple.Safari NewTabBehavior -int 1
+
+# Stop websites asking to send push notifications
+defaults write com.apple.safari CanPromptForPushNotifications -bool false
 
 ###############################################################################
 # Mail                                                                        #
@@ -839,6 +843,35 @@ if [[ ! -f $FONT_DST ]]; then
     mkdir -p $FONTS_DIR
   fi
   cp $FONT_LOC $FONT_DST
+fi
+
+###############################################################################
+# Xcode                                                                       #
+###############################################################################
+
+# Trim trailing whitespace
+defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
+
+# Trim whitespace only lines
+defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
+
+# Show page guide at 100 columns
+defaults write com.apple.dt.Xcode DVTTextShowPageGuide -bool true
+defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 100
+
+# Set colour theme
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string tomorrow-night-xcode.xccolortheme
+
+# Copy colour theme if needed
+XCODE_THEME_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+XCODE_THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
+XCODE_THEME_LOC="$HOME/dotfiles/themes/$XCODE_THEME_NAME"
+XCODE_THEME_DST="$XCODE_THEME_DIR/$XCODE_THEME_NAME"
+if [[ ! -f $XCODE_THEME_DST ]]; then
+  if [[ ! -d "$XCODE_THEME_DIR" ]]; then
+    mkdir -p $XCODE_THEME_DIR
+  fi
+  cp $XCODE_THEME_LOC $XCODE_THEME_DST
 fi
 
 ###############################################################################
