@@ -49,7 +49,7 @@ set matchtime=2          " The amount of time matches flash
 set display=lastline     " Display super long wrapped lines
 set ignorecase           " Ignore case when searching
 set smartcase            " Ignore case if search is lowercase, otherwise case-sensitive
-set gdefault             " Adds g at the end of substitutions by default
+"set gdefault             " Adds g at the end of substitutions by default
 set expandtab            " Default spacing stuff
 set tabstop=2
 set shiftwidth=2
