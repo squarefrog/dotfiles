@@ -516,11 +516,8 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-# Enable continuous spellchecking
-defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
-
 # Disable auto-correct
-#defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
+defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
 
 # Disable AutoFill
 #defaults write com.apple.Safari AutoFillFromAddressBook -bool false
@@ -861,6 +858,9 @@ defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 100
 
 # Set colour theme
 defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string tomorrow-night-xcode.xccolortheme
+
+# Don't show warning when reverting changes
+defaults write com.apple.dt.Xcode IDESourceControlSuppressRevertSelectedDifference -bool true
 
 # Copy colour theme if needed
 XCODE_THEME_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
