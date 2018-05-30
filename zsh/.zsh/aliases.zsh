@@ -8,6 +8,8 @@ alias gap="git add -p"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gc="git commit -v"
+alias gco="git checkout"
+alias gcop="git checkout -p"
 
 # git flow
 alias gffs='git flow feature start'
@@ -30,5 +32,13 @@ alias tmux='tmux -2'
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+# Update docker compose containers
+alias dcu='docker-compose stop && docker-compose pull --parallel && docker-compose up -d'
+
 # Update ALL the things
 alias update='sudo softwareupdate -ia; brew update; brew upgrade; brew cleanup; gem update;'
+
+# Swift development
+alias lint='swiftlint'
+alias st='swift test'
+
