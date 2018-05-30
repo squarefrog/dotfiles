@@ -12,6 +12,8 @@ NeoBundle "christoomey/vim-tmux-navigator"
 NeoBundle "squarefrog/tomorrow-night.vim"
 NeoBundle "vim-airline/vim-airline-themes"
 NeoBundle "stevearc/vim-arduino"
+" syntax checking on save
+NeoBundle "vim-syntastic/syntastic"
 
 
 " Ruby
@@ -32,6 +34,9 @@ NeoBundleLazy "sudar/vim-arduino-syntax", { 'autoload' : { 'filetypes' : ['ino',
 
 " Textile
 NeoBundleLazy "amiorin/vim-textile", { 'autoload' : { 'filetypes' : ['textile'] }}
+
+" Swift
+NeoBundleLazy "keith/swift.vim", { 'autoload' : { 'filetypes' : ['swift'] }}
 
 
 NeoBundle "scrooloose/nerdtree"
