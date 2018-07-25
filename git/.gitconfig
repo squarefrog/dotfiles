@@ -14,6 +14,7 @@
 	today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
 	undo = reset --soft HEAD^
 	l = log --graph --pretty='format:%C(yellow)%h%C(red)%d%C(reset) %s %C(white) %C(cyan)%an%C(reset), %C(green)%ar%C(reset)'
+  history = !git log `git describe --tags --abbrev=0`..HEAD --oneline --format='- %s'
 [push]
 	default = current
 [diff]
