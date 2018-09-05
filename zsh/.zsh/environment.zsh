@@ -8,7 +8,7 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 # Paths
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
