@@ -564,6 +564,9 @@ defaults write com.apple.Safari NewTabBehavior -int 1
 # Stop websites asking to send push notifications
 defaults write com.apple.safari CanPromptForPushNotifications -bool false
 
+# Add Merge All Windows shortcut (ctrl+cmd+w)
+defaults write com.apple.safari NSUserKeyEquivalents -dict-add "Merge All Windows" -string "@^w"
+
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
