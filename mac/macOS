@@ -855,9 +855,9 @@ defaults write com.apple.dt.Xcode DVTTextEditorTrimTrailingWhitespace -bool true
 # Trim whitespace only lines
 defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines -bool true
 
-# Show page guide at 100 columns
+# Show page guide at 110 columns
 defaults write com.apple.dt.Xcode DVTTextShowPageGuide -bool true
-defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 100
+defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 110
 
 # Set colour theme
 defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string tomorrow-night-xcode.xccolortheme
