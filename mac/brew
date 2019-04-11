@@ -27,12 +27,12 @@ brew update
 brew upgrade
 
 # Install brews
-brew install fasd
-brew install macvim --with-override-system-vim
-brew install reattach-to-user-namespace
-brew install stow
-brew install tmux
-brew install tree
+brew install fasd # allow jumping to recent folders with `z foo`
+brew install macvim --with-override-system-vim # replace the system vim with macvim
+brew install reattach-to-user-namespace # enable tmux pasteboard
+brew install stow # easier symlinking of dotfiles
+brew install tmux # make split terminals easier to handle
+brew install tree # quickly see a folder structure
 
 # Cleanup old brews
 brew cleanup
