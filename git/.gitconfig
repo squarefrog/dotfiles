@@ -28,7 +28,7 @@
 [mergetool]
 	prompt = false
 [merge]
-	tool = fugitive
+	tool = opendiff
 	log = true
 [include]
 	path = ~/.gitconfig.local
