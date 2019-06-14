@@ -1,0 +1,26 @@
+# taps
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+# brews
+brew "carthage"                   # dependency manager for swift
+brew "fasd"                       # allow quick switching directories
+brew "macvim"                     # mac specific vim
+brew "mas"                        # allow installing mac app store apps from cli
+brew "reattach-to-user-namespace" # enable clipboard with tmux
+brew "swiftlint"                  # allow linting swift projects
+brew "tmux"                       # allow easier split panes
+brew "tree"                       # show directory structure in an easy to read format
+
+# casks
+cask "iterm2"
+
+# app store apps
+mas "24 Hour Wallpaper", id: 1226087575
+mas "BetterSnapTool", id: 417375580
+mas "DevCleaner", id: 1388020431
+mas "HTTP Client", id: 418138339
+mas "Sip", id: 507257563
+mas "Wipr", id: 1320666476
+mas "Xcode", id: 497799835
