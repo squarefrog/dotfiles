@@ -882,7 +882,6 @@ fi
 ###############################################################################
 
 for app in "Activity Monitor" \
-	#"Calendar" \
 	"cfprefsd" \
 	"Dock" \
 	"Finder" \
