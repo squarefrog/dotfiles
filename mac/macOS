@@ -865,6 +865,9 @@ defaults write com.apple.dt.Xcode DVTTextPageGuideLocation -int 110
 # Don't show warning when reverting changes
 defaults write com.apple.dt.Xcode IDESourceControlSuppressRevertSelectedDifference -bool true
 
+# Hide minimap
+defaults write com.apple.dt.Xcode DVTTextShowMinimap -bool false
+
 # Copy colour theme if needed
 XCODE_THEME_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
 XCODE_THEME_NAME="tomorrow-night-xcode.dvtcolortheme"
