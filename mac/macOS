@@ -567,6 +567,10 @@ defaults write com.apple.safari CanPromptForPushNotifications -bool false
 # Add Merge All Windows shortcut (ctrl+cmd+w)
 defaults write com.apple.safari NSUserKeyEquivalents -dict-add "Merge All Windows" -string "@^w"
 
+# Allow toggling JavaScript
+defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Disable JavaScript" -string "@\$j"
+
+
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################
