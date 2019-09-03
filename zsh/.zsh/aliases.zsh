@@ -1,15 +1,15 @@
 # ls
-alias la="ls -ahl"
+alias la='ls -ahl'
 
 # git
-alias gs="git status"
-alias gaa="git add --all"
-alias gap="git add -p"
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias gc="git commit -v"
-alias gco="git checkout"
-alias gcop="git checkout -p"
+alias gs='git status'
+alias gaa='git add --all'
+alias gap='git add -p'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gc='git commit -v'
+alias gco='git checkout'
+alias gcop='git checkout -p'
 
 # git flow
 alias gffs='git flow feature start'
@@ -33,8 +33,8 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 alias tmux='tmux -2'
 
 # Easy recursion
-alias ...="cd ../.."
-alias ....="cd ../../.."
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Update docker compose containers
 alias dcu='docker-compose stop && docker-compose pull --parallel && docker-compose up -d'
