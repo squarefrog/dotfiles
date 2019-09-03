@@ -15,6 +15,10 @@ alias gcop="git checkout -p"
 alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
 
+# easier branch switching
+alias master='git checkout master'
+alias develop='git checkout develop'
+
 # fasd
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
