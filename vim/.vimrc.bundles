@@ -59,7 +59,11 @@ NeoBundle "tpope/vim-fugitive"
 if (system('uname') =~ "Darwin")
 
 NeoBundle 'darfink/vim-plist'
-NeoBundle "kien/ctrlp.vim"
+
+NeoBundle "ctrlpvim/ctrlp.vim"
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_cmd = 'CtrlP'
+
 NeoBundle "elzr/vim-json"
   let g:vim_json_syntax_conceal = 0
   set foldmethod=syntax
