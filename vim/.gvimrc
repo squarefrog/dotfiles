@@ -19,6 +19,12 @@ set mouse=a
 " Set visual bell
 set vb
 
+" Disable cmd+p shortcut
+if has("gui_macvim")
+  macmenu File.Print key=<nop>
+  map <D-p> :CtrlP<CR>
+endif
+
 " Local config
 if filereadable($HOME . "/.gvimrc.local")
   source ~/.gvimrc.local
