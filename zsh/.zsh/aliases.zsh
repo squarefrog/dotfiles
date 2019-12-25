@@ -1,6 +1,9 @@
 # ls
 alias la='ls -ahl'
 
+# docker-compose
+alias dc='docker-compose'
+
 # git
 alias gs='git status'
 alias gaa='git add --all'
