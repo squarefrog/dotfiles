@@ -84,6 +84,9 @@ let g:xml_syntax_folding=1
 " Enable spell check for Markdown
 autocmd BufNewFile,BufRead *.markdown setlocal spell
 
+" use 2 spaces for json
+autocmd FileType json setlocal ts=2 sts=2 sw=2
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keyboard Mapping
@@ -161,7 +164,7 @@ augroup END " }
 
 " Format JSON
 function! FormatJSON()
-  :%!python -m json.tool
+  :%!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2, separators=(',', ': '))"
 endfunction
 
 " Add a function call so when i forget what the mapping is I'm not stuck..
