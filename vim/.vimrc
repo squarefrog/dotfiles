@@ -64,6 +64,8 @@ set incsearch            " show the first match as search strings are typed
 set ignorecase smartcase " searching is case insensitive when all lowercase
 set mouse=a              " Allow mouse scrolling even when in tmux
 set clipboard=unnamed
+set splitright           " More natural splitting
+set splitbelow
 
 " Highlight trailing whitespace - disabled for now as list breaks linebreak
 set list listchars=tab:\ \ ,trail:·
