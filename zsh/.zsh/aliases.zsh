@@ -4,6 +4,9 @@ alias la='ls -ahl'
 # docker-compose
 alias dc='docker-compose'
 
+# android
+alias android='open -a /Applications/Android\ Studio.app'
+
 # git
 alias gs='git status'
 alias gaa='git add --all'
