@@ -105,6 +105,10 @@ let mapleader=","
 
 " Disable the pesky :Q command
 nnoremap Q <nop>
+"
+" Remap command line to quit
+nnoremap q: :q
+
 
 " Work around my mistakes
 cmap WQ wq
