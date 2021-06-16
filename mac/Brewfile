@@ -12,4 +12,8 @@ brew "tmux"                       # allow easier split panes
 brew "tree"                       # show directory structure in an easy to read format
 
 # casks
+cask "1password"
+cask "alfred"
 cask "iterm2"
+cask "sketch"
+cask "slack"
