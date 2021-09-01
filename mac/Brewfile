@@ -10,6 +10,7 @@ brew "reattach-to-user-namespace" # enable clipboard with tmux
 brew "swiftlint"                  # allow linting swift projects
 brew "tmux"                       # allow easier split panes
 brew "tree"                       # show directory structure in an easy to read format
+brew "stow"                       # create links to dotfiles
 
 # casks
 cask "1password"
