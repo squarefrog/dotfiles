@@ -1,3 +1,5 @@
+alias be='bundle exec'
+
 # ls
 alias la='ls -ahl'
 
