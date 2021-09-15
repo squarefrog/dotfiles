@@ -21,13 +21,13 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
-[mergetool "fugitive"]
-	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [mergetool]
 	prompt = false
+	keepBackup = false
 [merge]
-	tool = opendiff
-	log = true
+	tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
 [include]
 	path = ~/.gitconfig.local
 [credential]
