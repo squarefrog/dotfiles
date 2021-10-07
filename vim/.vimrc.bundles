@@ -1,73 +1,33 @@
-" Plugins are managed by Vundle. Once VIM is open run :NeoBundleInstall to
-" install plugins.
-filetype off
-
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
 " Plugins requiring no additional configuration or keymaps
-NeoBundle "ddollar/nerdcommenter"
-NeoBundle "ervandew/supertab"
-NeoBundle "tpope/vim-surround"
-NeoBundle "tpope/vim-unimpaired"
-NeoBundle "christoomey/vim-tmux-navigator"
-NeoBundle "squarefrog/tomorrow-night.vim"
-NeoBundle "vim-airline/vim-airline-themes"
-NeoBundle "stevearc/vim-arduino"
-" syntax checking on save
-NeoBundle "vim-syntastic/syntastic"
+Plug 'ddollar/nerdcommenter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'squarefrog/tomorrow-night.vim'
+Plug 'vim-airline/vim-airline-themes'
 
-NeoBundle "kamwitsta/flatwhite-vim"
+" Lazy loaded plugins
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'keith/swift.vim', { 'for': 'swift' }
 
 
-" Ruby
-NeoBundleLazy "vim-ruby/vim-ruby", { 'autoload' : { 'filetypes' : ['ruby'] }}
-
-
-" Markdown
-NeoBundleLazy "tpope/vim-markdown", { 'autoload' : { 'filetypes' : ['markdown'] }}
-
-
-" Coffee script
-NeoBundleLazy "kchmck/vim-coffee-script", { 'autoload' : { 'filetypes' : ['coffee'] }}
-
-
-" Arduino
-NeoBundleLazy "jplaut/vim-arduino-ino", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
-NeoBundleLazy "sudar/vim-arduino-syntax", { 'autoload' : { 'filetypes' : ['ino', 'pde'] }}
-
-" Textile
-NeoBundleLazy "amiorin/vim-textile", { 'autoload' : { 'filetypes' : ['textile'] }}
-
-" Swift
-NeoBundleLazy "keith/swift.vim", { 'autoload' : { 'filetypes' : ['swift'] }}
-
-
-NeoBundle "scrooloose/nerdtree"
+Plug 'scrooloose/nerdtree'
   nmap gt :NERDTreeToggle<CR>
-
-
-NeoBundle "tpope/vim-fugitive"
-  map <leader>gb :Gblame<CR>
-  map <leader>gs :Gstatus<CR>
-  map <leader>gd :Gdiff<CR>
-  map <leader>gl :Glog<CR>
-  map <leader>gc :Gcommit<CR>
-  map <leader>gp :Git push<CR>
-  map <leader>gw :Gwrite<CR>
-
 
 " The following bundles will only be installed on OS X
 if (system('uname') =~ "Darwin")
 
-NeoBundle 'darfink/vim-plist'
+Plug 'darfink/vim-plist'
 
-NeoBundle "ctrlpvim/ctrlp.vim"
-  let g:ctrlp_map = '<c-p>'
-  let g:ctrlp_cmd = 'CtrlP'
-
-NeoBundle "elzr/vim-json"
+Plug 'elzr/vim-json'
   let g:vim_json_syntax_conceal = 0
   set foldmethod=syntax
-NeoBundle "bling/vim-airline"
+
+Plug 'bling/vim-airline'
   let g:airline_theme = 'tomorrow'
   let g:airline#extensions#branch#enabled = 1
   let g:airline#extensions#syntastic#enabled = 1
@@ -84,3 +44,5 @@ if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
 
+" Initialize plugin system
+call plug#end()

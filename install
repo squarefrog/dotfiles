@@ -5,17 +5,14 @@ for folder in gem git tmux vim zsh; do
   stow --target=$HOME --ignore=example $folder
 done
 
-if [[ -d "$HOME/.vim/bundle/neobundle.vim" ]]; then
-  echo "Updating vim packages"
-  pushd $HOME/.vim/bundle/neobundle.vim > /dev/null 2>&1
-  git pull origin master > /dev/null 2>&1
-  popd > /dev/null 2>&1
+if [[ -d "$HOME/.vim/autoload/plug.vim" ]]; then
+  echo "Updating vim packages..."
 else
-  echo "Installing neobundle.vim"
-  if [ ! -d "$HOME/.vim/bundle" ]; then
-    mkdir -p $HOME/.vim/bundle
+  echo "Installing plug.vim"
+  if [ ! -d "$HOME/.vim/autoload" ]; then
+    mkdir -p $HOME/.vim/autoload
   fi
-  git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim > /dev/null 2>&1
+  curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-vim -c "NeoBundleInstall!" -c "qa!"
+vim -c "PlugInstall" -c "qa!"
 

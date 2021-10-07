@@ -1,18 +1,12 @@
-" bring in the bundles for mac and windows
-set rtp+=~/.vim/bundle/neobundle.vim/
-
 if !has('win32')
   set shell=/bin/sh
 endif
 
-" Load in bundles file
-call neobundle#begin()
-
+" vim-plug bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
-call neobundle#end()
 filetype plugin indent on
 syntax on
 silent! colorscheme tomorrow-night   " Set color scheme
