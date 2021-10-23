@@ -1,3 +1,6 @@
+# yt-dlp is a lot faster than youtube-dl
+alias youtube-dl="yt-dlp"
+
 alias be='bundle exec'
 
 # ls
@@ -5,9 +8,6 @@ alias la='ls -ahl'
 
 # docker-compose
 alias dc='docker-compose'
-
-# android
-alias android='open -a /Applications/Android\ Studio.app'
 
 # git
 alias gs='git status'
@@ -25,6 +25,7 @@ alias gfff='git flow feature finish'
 
 # easier branch switching
 alias master='git checkout master'
+alias main='git checkout main'
 alias develop='git checkout develop'
 
 # fasd
