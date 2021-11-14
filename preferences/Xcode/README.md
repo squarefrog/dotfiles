@@ -22,9 +22,7 @@ You can define custom shortcuts as XML within that `IDETextKeyBindingSet.plist`,
 
 ## Assigning key bindings
 
-In Xcode go to Preferences > Key Bindings.
-
-I haven't figured out where the system stores these, so I still have to do this manually.
+In Xcode go to Preferences > Key Bindings. These are stored in `~/Library/Developer/Xcode/UserData/KeyBindings`, and reflect the name you have selected in Xcode. By default this is `Default.idekeybindings`.
 
 ## Included bindings
 
