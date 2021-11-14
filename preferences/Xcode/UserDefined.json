@@ -1,0 +1,5 @@
+{
+  "Duplicate Current Lines Down": "selectParagraph:, delete:, yank:, moveToBeginningOfParagraph:, yank:, moveUp:, moveToEndOfParagraph:",
+  "Insert New Line Above Current Line": "moveUp:, moveToEndOfLine:, insertNewline:",
+  "Insert New Line Below Current Line": "moveToEndOfLine:, insertNewline:"
+}
