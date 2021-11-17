@@ -2,6 +2,7 @@
 alias youtube-dl="yt-dlp"
 
 alias be='bundle exec'
+alias pi='bundle exec pod install'
 
 # ls
 alias la='ls -ahl'
