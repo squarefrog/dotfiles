@@ -55,4 +55,4 @@ alias update='sudo softwareupdate -ia; brew update; brew upgrade; brew cleanup; 
 # Swift development
 alias lint='swiftlint'
 alias st='swift test'
-
+alias nukesim='xcrun simctl --set testing shutdown all && xcrun simctl --set testing erase all'
