@@ -41,3 +41,5 @@
 	ff = only
 [init]
 	defaultBranch = main
+[apply]
+	whitespace = nowarn
