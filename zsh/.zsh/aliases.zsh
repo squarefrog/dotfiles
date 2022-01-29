@@ -56,3 +56,5 @@ alias update='sudo softwareupdate -ia; brew update; brew upgrade; brew cleanup; 
 alias lint='swiftlint'
 alias st='swift test'
 alias nukesim='xcrun simctl --set testing shutdown all && xcrun simctl --set testing erase all'
+
+alias clean_branches="zsh $DOTFILES/scripts/clean-branches.zsh"

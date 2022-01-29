@@ -19,4 +19,4 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export TERM=xterm-256color
 
 # Path to dotfiles repo
-export DOTFILES="$(dirname $(dirname $(readlink $HOME/.vimrc)))"
+export DOTFILES="$HOME/$(dirname $(dirname $(readlink $HOME/.vimrc)))"
