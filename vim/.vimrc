@@ -164,7 +164,7 @@ augroup END " }
 
 " Format JSON
 function! FormatJSON()
-  :%!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2, separators=(',', ': '))"
+  :%!python3 -m json.tool --indent 2
 endfunction
 
 " Add a function call so when i forget what the mapping is I'm not stuck..
