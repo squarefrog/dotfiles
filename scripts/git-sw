@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Git smart switch
+
+Like `git switch` but stashing uncommitted changes and recovering them when you are back.
+
+https://gist.github.com/mgaitan/d9a3523d79cd5f9fbfd626f646f0560b
+
+# Install
+
+Save this file somewhere in your PATH as `git-sw`, and add execution permission.
+Git will recognize it as the "sw" subcommand.
+
+# Example
+
+Suppose you have a dirty branch like this
+
+```
+$ git status -uno
+On branch fix/cloud_
+Your branch is up to date with 'origin/fix/cloud_'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+    modified:   shipping/shipping/domain/carriers/labeler.py
+    modified:   shipping/tests/domain/carriers/test_labeler.py
+```
+
+You can switch with git sw
+
+```
+$ git sw master
+Switched to branch 'master'
+```
+
+The changes have been stashed
+```
+$ git status -uno
+On branch master
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit (use -u to show untracked files)
+```
+
+Later you want to go back to the branch `fix/cloud_`. Just run git sw again
+
+```
+$ git sw -
+Switched to branch 'fix/cloud_'
+```
+
+And your stashed changes will be there again
+
+```
+$ git status -uno
+On branch fix/cloud_
+Your branch is up to date with 'origin/fix/sendcloud_'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+    modified:   shipping/shipping/domain/carriers/labeler.py
+    modified:   shipping/tests/domain/carriers/test_labeler.py
+```
+
+"""
+
+import argparse
+import re
+import subprocess
+
+parser = argparse.ArgumentParser(description="Smart switch")
+parser.add_argument("branch", help="Switch to a specified branch.")
+args = parser.parse_args()
+
+
+current_branch = subprocess.check_output(["git", "branch", "--show-current"], text=True).strip()
+
+# try to stash the current state setting a parseable message with the branch
+subprocess.check_output(["git", "stash", "--message", f"[smart switch] {current_branch}"], text=True)
+
+# switch
+subprocess.check_output(["git", "switch", args.branch])
+
+# this is the same than args.branch but also expand references like "-"
+target_branch = subprocess.check_output(["git", "branch", "--show-current"], text=True).strip()
+
+# list stashes to find if there is something to pop
+stashes_list = subprocess.check_output(["git", "stash", "list"], text=True)
+stashes = {branch_name: stash_index for (stash_index, branch_name) in re.findall(r"stash@\{(\d+)\}\: .*: \[smart switch\] (.*)", stashes_list)}
+
+stash_index = stashes.get(target_branch)
+
+if stash_index is not None:
+    subprocess.check_output(["git", "stash", "pop", "--index", stash_index])
+

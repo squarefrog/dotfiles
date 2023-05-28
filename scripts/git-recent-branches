@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+List the most recent branches you have been working on, and checkout any of them.
+
+https://gist.github.com/mgaitan/ba1e4e252b90a7fd4a4eb9e1742e94fb
+
+# Install
+
+Put this file somewhere in your PATH, and set execution permissions.
+Git will recognize it as the "recent-branches" subcommand.
+
+# Usage
+
+Without positional argument, it shows the last 10 most recently used branches.
+You can pass -n <number> to see more.
+
+$ git recent-branches
+1 - feature/EN-634
+2 - feature/en-583_3
+3 * master
+4 - HOTFIX/spotify
+5 - tests_factories
+6 - feature/en-583_2
+7 - _prod/workers/orders_py3
+8 - prueba
+9 - _prod/workers/products_py3
+10 - staging
+
+Passing a number will checkout the branch listed in that position.
+
+$ git recent-branches 5
+Switched to branch 'tests_factories'
+Your branch is up to date with 'origin/tests_factories'.
+
+In the list, the row with "*" (instead "-") is the current branch.
+"""
+
+import argparse
+import re
+import subprocess
+from collections import OrderedDict
+
+pattern = re.compile(r"checkout: moving from ([A-Za-z0-9_\/\-]+) to")
+
+parser = argparse.ArgumentParser(description="Recent branches")
+parser.add_argument("index", type=int, nargs="?", help="Move to the i-th branch in the list")
+parser.add_argument("--limit", "-n", type=int, default=10, help="Show until the n-th branch")
+parser.add_argument("--force", "-f", action="store_true", help="Force checkout")
+
+args = parser.parse_args()
+
+output = subprocess.check_output(["git", "reflog"], text=True)
+
+# OrderedList.fromkeys(list).keys() works as a filter of repeated items in list
+# keeping the first occurrence of them. A poor-man sorted set.
+branches = list(OrderedDict.fromkeys(re.findall(pattern, output)).keys())
+
+
+if args.index:
+    # use sw instead switch if available
+    # install sw from https://gist.github.com/mgaitan/d9a3523d79cd5f9fbfd626f646f0560b
+    use_sw = subprocess.call(["git", "sw"], stderr=subprocess.DEVNULL) == 2 and not args.force
+
+    cmd = ["git", "sw" if use_sw else "switch"]
+    if args.force:
+        cmd.append("-f")
+    cmd.append(branches[args.index - 1])
+    subprocess.call(cmd)
+else:
+    current = subprocess.check_output(["git", "branch", "--show-current"], text=True).strip()
+    for i, branch in enumerate(branches[: args.limit], 1):
+        print(f"{i} {'*' if current == branch else '-'} {branch}")
