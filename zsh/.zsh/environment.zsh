@@ -20,3 +20,4 @@ export TERM=xterm-256color
 
 # Path to dotfiles repo
 export DOTFILES="$HOME/$(dirname $(dirname $(readlink $HOME/.vimrc)))"
+export PATH="$DOTFILES/scripts:$PATH"
