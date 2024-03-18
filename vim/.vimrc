@@ -97,19 +97,6 @@ imap jj <Esc>
 " Change leader from \ to ,
 let mapleader=","
 
-" Disable the pesky :Q command
-nnoremap Q <nop>
-"
-" Remap command line to quit
-nnoremap q: :q
-
-
-" Work around my mistakes
-cmap WQ wq
-cmap Wq wq
-cmap W w
-cmap Q q
-
 " Reindent all
 map <Leader>I gg=G``<cr>
 
