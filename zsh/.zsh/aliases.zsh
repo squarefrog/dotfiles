@@ -19,6 +19,9 @@ alias gdc='git diff --cached'
 alias gc='git commit -v'
 alias gco='git checkout'
 alias gcop='git checkout -p'
+alias gp='git pull --recurse-submodules'
+alias gb='git checkout -b'
+alias parent_branch='git show-branch | sed "s/].*//" | grep "\*" | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -n1 | sed "s/^.*\[//"'
 
 # git flow
 alias gffs='git flow feature start'
@@ -58,3 +61,8 @@ alias st='swift test'
 alias nukesim='xcrun simctl --set testing shutdown all && xcrun simctl --set testing erase all'
 
 alias clean_branches="zsh $DOTFILES/scripts/clean-branches.zsh"
+alias clean_branches_manual="zsh $DOTFILES/scripts/clean-branches-manual.zsh"
+
+alias parent_branch='git show-branch | sed "s/].*//" | grep "\*" | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -n1 | sed "s/^.*\[//"'
+
+alias xcg='mint run xcodegen generate'
