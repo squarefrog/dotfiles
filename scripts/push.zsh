@@ -62,6 +62,16 @@ fi
 
 print_status "Current branch: $current_branch"
 
+# Check if pushing to main/master - skip MR/PR URL extraction
+if [[ "$current_branch" == "main" || "$current_branch" == "master" ]]; then
+    print_status "Pushing to $current_branch - skipping merge/pull request URL extraction"
+
+    # Just run git push and exit
+    git push "${ARGS[@]}"
+    print_success "Push to $current_branch completed!"
+    exit 0
+fi
+
 # Capture git push output
 print_status "Pushing branch..."
 push_output=$(git push "${ARGS[@]}" 2>&1) || {
