@@ -66,3 +66,7 @@ alias clean_branches_manual="zsh $DOTFILES/scripts/clean-branches-manual.zsh"
 alias parent_branch='git show-branch | sed "s/].*//" | grep "\*" | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -n1 | sed "s/^.*\[//"'
 
 alias xcg='mint run xcodegen generate'
+
+# Scripts
+alias push="zsh $DOTFILES/scripts/push.zsh"
+alias branch="zsh $DOTFILES/scripts/branch_tool/branch_tool.zsh"
