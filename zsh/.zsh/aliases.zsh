@@ -1,8 +1,4 @@
-# yt-dlp is a lot faster than youtube-dl
-alias youtube-dl="yt-dlp"
-
 alias be='bundle exec'
-alias pi='bundle exec pod install'
 
 # ls
 alias la='ls -ahl'
@@ -21,16 +17,11 @@ alias gco='git checkout'
 alias gcop='git checkout -p'
 alias gp='git pull --recurse-submodules'
 alias gb='git checkout -b'
+alias gmt='git mergetool'
 alias parent_branch='git show-branch | sed "s/].*//" | grep "\*" | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -n1 | sed "s/^.*\[//"'
 
-# git flow
-alias gffs='git flow feature start'
-alias gfff='git flow feature finish'
-
 # easier branch switching
-alias master='git checkout master'
 alias main='git checkout main'
-alias develop='git checkout develop'
 
 # fasd
 alias a='fasd -a'        # any
@@ -49,24 +40,11 @@ alias tmux='tmux -2'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# Update docker compose containers
-alias dcu='docker-compose stop && docker-compose pull --parallel && docker-compose up -d'
-
-# Update ALL the things
-alias update='sudo softwareupdate -ia; brew update; brew upgrade; brew cleanup; gem update;'
-
 # Swift development
-alias lint='swiftlint'
-alias st='swift test'
 alias nukesim='xcrun simctl --set testing shutdown all && xcrun simctl --set testing erase all'
 
+# Scripts
 alias clean_branches="zsh $DOTFILES/scripts/clean-branches.zsh"
 alias clean_branches_manual="zsh $DOTFILES/scripts/clean-branches-manual.zsh"
-
-alias parent_branch='git show-branch | sed "s/].*//" | grep "\*" | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -n1 | sed "s/^.*\[//"'
-
-alias xcg='mint run xcodegen generate'
-
-# Scripts
 alias push="zsh $DOTFILES/scripts/push.zsh"
 alias branch="zsh $DOTFILES/scripts/branch_tool/branch_tool.zsh"
