@@ -29,8 +29,8 @@ for branch in $branches; do
   # Trim whitespace
   branch=${branch// /}
 
-  # Skip master and current branch
-  if [[ $branch == "master" || $branch =~ "\*" ]]; then
+  # Skip main and current branch
+  if [[ $branch == "main" || $branch =~ "\*" ]]; then
     continue
   fi
 
