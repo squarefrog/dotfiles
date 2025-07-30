@@ -18,7 +18,7 @@ get_command_name() {
             return
         fi
     fi
-    
+
     # Fallback to basename of $0
     echo "${0##*/}"
 }
@@ -99,13 +99,13 @@ parse_arguments() {
     if [[ "$*" =~ (^|[[:space:]])(-h|--help)([[:space:]]|$) ]]; then
         show_usage
     fi
-    
+
     # Check if using positional arguments (at least 3 args, first arg doesn't start with -)
     if [[ $# -ge 3 && "$1" != -* ]]; then
         parse_positional_arguments "$@"
         return
     fi
-    
+
     # Otherwise use flag-based parsing
     parse_flag_arguments "$@"
 }
@@ -114,29 +114,29 @@ parse_positional_arguments() {
     local change_flag="$1"
     ticket_number="$2"
     shift 2  # Remove first two arguments
-    
+
     # Join remaining arguments with spaces and capitalize first letter
     message=$(capitalize_first "$*")
-    
+
     # Map change flag to change type (support both short and long forms)
     case "${change_flag:l}" in  # Convert to lowercase for comparison
         a|added) change_type="Added" ;;
         c|changed) change_type="Changed" ;;
         r|removed) change_type="Removed" ;;
         f|fixed) change_type="Fixed" ;;
-        w|wip) change_type="Work in progress" ;;
+        w|wip) change_type="Work in Progress" ;;
         *)
             log_error "Invalid change type '$change_flag'. Use: a/added, c/changed, r/removed, f/fixed, or w/wip"
             show_usage
             ;;
     esac
-    
+
     # Validate ticket number is numeric
     if [[ ! "$ticket_number" =~ ^[0-9]+$ ]]; then
         log_error "Ticket number must be numeric"
         exit 1
     fi
-    
+
     # Validate message is not empty
     if [[ -z "$message" ]]; then
         log_error "Message cannot be empty"
@@ -146,7 +146,7 @@ parse_positional_arguments() {
 
 parse_flag_arguments() {
     local added changed removed fixed wip help
-    
+
     zparseopts -D -E -F -K \
         t:=ticket_number \
         m:=message \
@@ -197,15 +197,15 @@ parse_flag_arguments() {
 
 generate_branch_name() {
     local type_slug="${change_type:l}"  # Convert to lowercase
-    
+
     # Handle special case for "Work in progress"
     [[ "$type_slug" == "work in progress" ]] && type_slug="wip"
-    
+
     # Create URL-friendly slug from message
     local message_slug="${message:l}"           # Convert to lowercase
     message_slug="${message_slug// /_}"         # Replace spaces with underscores
     message_slug="${message_slug//[^a-z0-9_-]/}" # Remove special characters
-    
+
     branch_name="${type_slug}/${SQUAD_NAME}-${ticket_number}_${message_slug}"
 }
 
@@ -226,16 +226,16 @@ validate_changelog_exists() {
 
 update_changelog() {
     validate_changelog_exists
-    
+
     local new_entry="- ${message} [${SQUAD_NAME}-${ticket_number}](${TICKET_URL_PREFIX}${ticket_number})"
-    local header="## $change_type"
-    
+    local header="### $change_type"
+
     # Read the entire file into an array
     local lines=()
     while IFS= read -r line || [[ -n "$line" ]]; do
         lines+=("$line")
     done < "$CHANGELOG_FILE"
-    
+
     # Find the header line index
     local header_index=-1
     local i
@@ -245,23 +245,23 @@ update_changelog() {
             break
         fi
     done
-    
+
     if (( header_index == -1 )); then
         log_error "Section '$header' not found in $CHANGELOG_FILE"
         echo "Available sections:" >&2
-        grep "^## " "$CHANGELOG_FILE" 2>/dev/null >&2 || echo "No sections found" >&2
+        grep "^### " "$CHANGELOG_FILE" 2>/dev/null >&2 || echo "No sections found" >&2
         exit 1
     fi
-    
+
     # Find the next section header or end of file
     local next_section_index=$((${#lines[@]} + 1))
     for ((i = header_index + 1; i <= ${#lines[@]}; i++)); do
-        if [[ "${lines[i]}" == "## "* ]]; then
+        if [[ "${lines[i]}" == "### "* ]]; then
             next_section_index=$i
             break
         fi
     done
-    
+
     # Find the last entry in this section
     local insert_index=$((header_index + 1))
     for ((i = header_index + 1; i < next_section_index; i++)); do
@@ -269,17 +269,17 @@ update_changelog() {
             insert_index=$((i + 1))
         fi
     done
-    
+
     # Insert the new entry
     lines=("${lines[@]:0:$((insert_index-1))}" "$new_entry" "${lines[@]:$((insert_index-1))}")
-    
+
     # Write back to file
     printf "%s\n" "${lines[@]}" > "$CHANGELOG_FILE"
 }
 
 commit_changelog() {
     run_command git add "$CHANGELOG_FILE"
-    run_command git commit -m "Update changelog for ${SQUAD_NAME}-${ticket_number}: ${message}"
+    run_command git commit -m "Update changelog"
 }
 
 #==============================================================================
@@ -289,7 +289,7 @@ commit_changelog() {
 main() {
     parse_arguments "$@"
     generate_branch_name
-    
+
     create_branch
     update_changelog
     commit_changelog
