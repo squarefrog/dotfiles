@@ -90,6 +90,8 @@ Examples:
   $SCRIPT_NAME changed 5678 Update API endpoint to use v2
   $SCRIPT_NAME -t 1234 -m "Add user authentication" -f
   $SCRIPT_NAME --help
+
+Note: For WIP tickets, use format "Parent ticket | Child ticket" - the branch will be named after the child ticket only.
 EOF
     exit 0
 }
@@ -201,8 +203,17 @@ generate_branch_name() {
     # Handle special case for "Work in progress"
     [[ "$type_slug" == "work in progress" ]] && type_slug="wip"
 
+    # For WIP tickets, extract only the child ticket part (after |) for branch naming
+    local branch_message="$message"
+    if [[ "$change_type" == "Work in Progress" && "$message" == *" | "* ]]; then
+        # Extract everything after " | " and trim whitespace
+        branch_message="${message#*" | "}"
+        branch_message="${branch_message## }"  # Remove leading spaces
+        branch_message="${branch_message%% }"  # Remove trailing spaces
+    fi
+
     # Create URL-friendly slug from message
-    local message_slug="${message:l}"           # Convert to lowercase
+    local message_slug="${branch_message:l}"    # Convert to lowercase
     message_slug="${message_slug// /_}"         # Replace spaces with underscores
     message_slug="${message_slug//[^a-z0-9_-]/}" # Remove special characters
 
