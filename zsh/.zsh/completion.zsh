@@ -160,3 +160,29 @@ zstyle ':completion:*:ssh:*' group-order users hosts-domain hosts-host users hos
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
+
+# Branch tool
+_branch_tool() {
+    local context state line
+    typeset -A opt_args
+
+    # Define the completion spec
+    _arguments -C \
+        '(-h --help)'{-h,--help}'[Show help message]' \
+        '(-t --ticket-number)'{-t,--ticket-number}'[Ticket number]:ticket number:' \
+        '(-m --message)'{-m,--message}'[Commit message]:message:' \
+        '(-a -c -r -f -w)-a[Added - new features]' \
+        '(-a -c -r -f -w)-c[Changed - changes in existing functionality]' \
+        '(-a -c -r -f -w)-r[Removed - removed features]' \
+        '(-a -c -r -f -w)-f[Fixed - bug fixes]' \
+        '(-a -c -r -f -w)-w[Work in progress]' \
+        '1:change type:(a added c changed r removed f fixed w wip)' \
+        '2:ticket number:' \
+        '*:message words:'
+}
+
+# Register the completion function
+compdef _branch_tool branch_tool.zsh
+
+# If you're using an alias, register it too
+compdef _branch_tool branch
