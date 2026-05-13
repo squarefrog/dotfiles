@@ -12,6 +12,7 @@ alias gaa='git add --all'
 alias gap='git add -p'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gdss='git diff --shortstat'
 alias gc='git commit -v'
 alias gco='git checkout'
 alias gcop='git checkout -p'
@@ -48,3 +49,11 @@ alias clean_branches="zsh $DOTFILES/scripts/clean-branches.zsh"
 alias clean_branches_manual="zsh $DOTFILES/scripts/clean-branches-manual.zsh"
 alias push="zsh $DOTFILES/scripts/push.zsh"
 alias branch="zsh $DOTFILES/scripts/branch_tool/branch_tool.zsh"
+
+pkg() {
+  branch c "$1" "$2"
+  mint run -s swift-outdated -i -f json | ./Scripts/update-packages.swift
+  git add .
+  git commit -m "$2"
+  git push -o merge_request.create -o merge_request.title="APO-$1: $2"
+}
